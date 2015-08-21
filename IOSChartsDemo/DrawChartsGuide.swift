@@ -57,7 +57,6 @@ class DrawchartsGuide{
         
         //设置X Y 轴及网格参数
         
-        
         chartView.xAxis.labelPosition = .Bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.axisLineColor = colors[1]
@@ -95,7 +94,6 @@ class DrawchartsGuide{
         chartView.gridBackgroundColor = colors[0]
         
         
-        
         //添加渐变
         var image = UIImage(named: "bg_guide")
         
@@ -105,9 +103,7 @@ class DrawchartsGuide{
         backgroundImage.alpha = 0.3
         backgroundImage.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         chartView.addSubview(backgroundImage)
-        print(frame)
-        print("\n")
-        print(backgroundImage.frame)
+
         
         
         return chartView

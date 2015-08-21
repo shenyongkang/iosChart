@@ -8,7 +8,7 @@
         <!--Bar Chart View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BarChartViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BarChartViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,12 +51,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="295"/>
+            <point key="canvasLocation" x="279" y="-723"/>
         </scene>
         <!--Cubic Line Chart View Controller-->
         <scene sceneID="BND-UW-JMf">
             <objects>
-                <viewController id="npi-xP-76w" customClass="CubicLineChartViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="npi-xP-76w" customClass="CubicLineChartViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CAp-yq-Omh"/>
                         <viewControllerLayoutGuide type="bottom" id="hiZ-rR-G0s"/>
@@ -67,27 +67,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BR5-WY-BdQ" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcX-se-Vr0" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
-                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="RCJ-8A-asK"/>
-                                            <constraint firstAttribute="width" constant="600" id="fX6-9u-H3Y"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="fX6-9u-H3Y"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="IcX-se-Vr0" firstAttribute="leading" secondItem="BR5-WY-BdQ" secondAttribute="leading" id="6Ic-gP-Nso"/>
-                                    <constraint firstItem="IcX-se-Vr0" firstAttribute="top" secondItem="BR5-WY-BdQ" secondAttribute="top" id="Edi-SQ-Mfv"/>
-                                    <constraint firstAttribute="trailing" secondItem="IcX-se-Vr0" secondAttribute="trailing" id="lg0-4F-AKg"/>
-                                </constraints>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,12 +84,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dp6-5y-UtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="1083"/>
+            <point key="canvasLocation" x="1918" y="103"/>
         </scene>
-        <!--Radar Chart View Controller-->
+        <!--Problem View Controller-->
         <scene sceneID="4KR-VF-mph">
             <objects>
-                <viewController id="4ix-4p-ole" customClass="RadarChartViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4ix-4p-ole" customClass="ProblemViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q7H-gF-Smn"/>
                         <viewControllerLayoutGuide type="bottom" id="eKY-KB-l8U"/>
@@ -118,31 +98,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOX-R9-hvY" customClass="RadarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOX-R9-hvY" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="600" height="220"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="0dS-KG-7C7"/>
+                                    <constraint firstAttribute="height" constant="220" id="gb3-WH-fSq"/>
+                                    <constraint firstAttribute="height" constant="229" id="zg1-yH-LHo"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0dS-KG-7C7"/>
+                                        <exclude reference="zg1-yH-LHo"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XOX-R9-hvY" firstAttribute="bottom" secondItem="eKY-KB-l8U" secondAttribute="top" id="1rC-RQ-00J"/>
+                            <constraint firstItem="XOX-R9-hvY" firstAttribute="top" secondItem="q7H-gF-Smn" secondAttribute="bottom" id="SlH-4I-RJh"/>
                             <constraint firstItem="XOX-R9-hvY" firstAttribute="top" secondItem="q7H-gF-Smn" secondAttribute="bottom" id="VgK-c6-fbY"/>
                             <constraint firstItem="XOX-R9-hvY" firstAttribute="leading" secondItem="y1D-Nx-uk8" secondAttribute="leading" id="XvS-75-Vcu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XOX-R9-hvY" secondAttribute="trailing" constant="-16" id="Y2Z-ux-XxQ"/>
+                            <constraint firstItem="XOX-R9-hvY" firstAttribute="leading" secondItem="y1D-Nx-uk8" secondAttribute="leadingMargin" constant="-16" id="bOI-s5-dPw"/>
+                            <constraint firstItem="XOX-R9-hvY" firstAttribute="leading" secondItem="y1D-Nx-uk8" secondAttribute="leadingMargin" constant="-16" id="bP3-3O-qlf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XOX-R9-hvY" secondAttribute="trailing" constant="-16" id="hyg-UL-fty"/>
                             <constraint firstAttribute="trailing" secondItem="XOX-R9-hvY" secondAttribute="trailing" id="i2y-oY-hvl"/>
+                            <constraint firstItem="XOX-R9-hvY" firstAttribute="top" secondItem="q7H-gF-Smn" secondAttribute="bottom" id="xC4-gm-YrC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1rC-RQ-00J"/>
+                                <exclude reference="VgK-c6-fbY"/>
+                                <exclude reference="XvS-75-Vcu"/>
+                                <exclude reference="bP3-3O-qlf"/>
+                                <exclude reference="hyg-UL-fty"/>
+                                <exclude reference="i2y-oY-hvl"/>
+                                <exclude reference="xC4-gm-YrC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="radarChartView" destination="XOX-R9-hvY" id="xqV-nd-QRt"/>
+                        <outlet property="topView" destination="XOX-R9-hvY" id="d18-qO-qwW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opT-WD-KIO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221" y="1052"/>
+            <point key="canvasLocation" x="2345" y="-652"/>
         </scene>
         <!--Line Chart View Controller-->
         <scene sceneID="qog-Ja-6Sj">
             <objects>
-                <viewController id="Fzf-00-sgI" customClass="LineChartViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fzf-00-sgI" customClass="LineChartViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JbO-CO-tch"/>
                         <viewControllerLayoutGuide type="bottom" id="3gg-fK-BnP"/>
@@ -170,81 +178,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWJ-Vx-FFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2835" y="300"/>
-        </scene>
-        <!--Home Page Graph View Controller-->
-        <scene sceneID="LRp-4a-7Tp">
-            <objects>
-                <viewController id="rs3-2q-4S4" customClass="HomePageGraphViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C0P-hO-BWS"/>
-                        <viewControllerLayoutGuide type="bottom" id="TbY-iA-u3J"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tbb-Vb-8l1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzN-Xg-BT8" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="114" width="568" height="180"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="HEi-jP-Kfk"/>
-                                    <constraint firstAttribute="width" constant="568" id="IuB-cd-9o7"/>
-                                    <constraint firstAttribute="width" constant="568" id="Vtx-tj-24r"/>
-                                    <constraint firstAttribute="height" constant="180" id="WKz-Yb-wkh"/>
-                                    <constraint firstAttribute="width" constant="568" id="YRB-dK-nQi"/>
-                                    <constraint firstAttribute="width" constant="568" id="aHc-Zb-wUV"/>
-                                    <constraint firstAttribute="width" constant="568" id="pRf-Wi-EFT"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="HEi-jP-Kfk"/>
-                                        <exclude reference="IuB-cd-9o7"/>
-                                        <exclude reference="Vtx-tj-24r"/>
-                                        <exclude reference="YRB-dK-nQi"/>
-                                        <exclude reference="aHc-Zb-wUV"/>
-                                        <exclude reference="pRf-Wi-EFT"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="leading" secondItem="tbb-Vb-8l1" secondAttribute="leadingMargin" id="1pm-re-08H"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="leading" secondItem="tbb-Vb-8l1" secondAttribute="leadingMargin" id="67w-R4-MoK"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="top" secondItem="C0P-hO-BWS" secondAttribute="bottom" constant="50" id="7RK-fb-j2b"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="top" secondItem="C0P-hO-BWS" secondAttribute="bottom" constant="150" id="8nN-e0-hPK"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="leading" secondItem="tbb-Vb-8l1" secondAttribute="leadingMargin" id="9Dc-oj-Gml"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="trailing" secondItem="tbb-Vb-8l1" secondAttribute="trailingMargin" id="Ar0-X1-ygb"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="leading" secondItem="tbb-Vb-8l1" secondAttribute="leadingMargin" id="BOH-Ot-ZPq"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="trailing" secondItem="tbb-Vb-8l1" secondAttribute="trailingMargin" id="Ujk-SJ-9k7"/>
-                            <constraint firstItem="TbY-iA-u3J" firstAttribute="top" secondItem="vzN-Xg-BT8" secondAttribute="bottom" constant="150" id="hKj-ko-Mfb"/>
-                            <constraint firstItem="vzN-Xg-BT8" firstAttribute="trailing" secondItem="tbb-Vb-8l1" secondAttribute="trailingMargin" id="pUi-xh-lDW"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1pm-re-08H"/>
-                                <exclude reference="67w-R4-MoK"/>
-                                <exclude reference="8nN-e0-hPK"/>
-                                <exclude reference="Ar0-X1-ygb"/>
-                                <exclude reference="BOH-Ot-ZPq"/>
-                                <exclude reference="Ujk-SJ-9k7"/>
-                                <exclude reference="hKj-ko-Mfb"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="pictureView" destination="vzN-Xg-BT8" id="YFL-Ca-fVc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BE9-l9-hWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3005" y="1008"/>
+            <point key="canvasLocation" x="1635" y="-664"/>
         </scene>
         <!--Pie Charts View Controller-->
         <scene sceneID="5lS-Hu-cvw">
             <objects>
-                <viewController id="hoD-GK-Z3Q" customClass="PieChartsViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hoD-GK-Z3Q" customClass="PieChartsViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lQe-gc-FaG"/>
                         <viewControllerLayoutGuide type="bottom" id="dBp-Vt-CK8"/>
@@ -273,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAF-Aj-ayK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="300"/>
+            <point key="canvasLocation" x="965" y="-676"/>
         </scene>
         <!--Charts-->
         <scene sceneID="QUu-iL-6Do">
@@ -362,7 +301,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D5g-bG-z0A" id="VFZ-Pb-D2M">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Radar Chart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zel-N6-YxD">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Problem Chart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zel-N6-YxD">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -372,24 +311,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="4ix-4p-ole" kind="show" id="J5P-cw-bbc"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="6LM-R2-sPA" style="IBUITableViewCellStyleDefault" id="TNM-a0-gQz">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TNM-a0-gQz" id="XrE-8v-fjG">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="home page chart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6LM-R2-sPA">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="rs3-2q-4S4" kind="show" id="U0c-gN-81t"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TnX-7E-gbl" style="IBUITableViewCellStyleDefault" id="QvD-tb-LH1">
@@ -416,7 +337,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2GP-qx-aKu" id="aJJ-C6-WUX">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Combine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="trh-Df-ar4">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血糖监测" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="trh-Df-ar4">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -434,7 +355,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCv-MK-toG" id="abi-VC-D66">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="百思不得其解" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vQa-Fi-3RS">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血糖数据分析－表格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vQa-Fi-3RS">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -444,6 +365,24 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="C65-pf-Hrl" kind="show" id="MV8-2e-GFM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="bRi-HH-cdb" style="IBUITableViewCellStyleDefault" id="ExH-dR-05X">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ExH-dR-05X" id="Hh9-uT-dD5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血糖数据分析－曲线" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRi-HH-cdb">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gJj-xR-tae" kind="show" id="gs1-GV-B96"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -458,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEx-XE-dvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="721"/>
+            <point key="canvasLocation" x="252" y="481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="66G-4H-V0R">
@@ -476,12 +415,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wU-t8-o4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="739"/>
+            <point key="canvasLocation" x="-457" y="481"/>
         </scene>
-        <!--Combine View Controller-->
+        <!--Blood Suger Monitor View Controller-->
         <scene sceneID="Az2-PI-1b2">
             <objects>
-                <viewController id="fQu-R2-5GK" customClass="CombineViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fQu-R2-5GK" customClass="BloodSugerMonitorViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mcP-vh-oZY"/>
                         <viewControllerLayoutGuide type="bottom" id="iv3-ym-rIP"/>
@@ -489,34 +428,17 @@
                     <view key="view" contentMode="scaleToFill" id="rHv-FL-CPT" customClass="CombinedChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-XI-F7o" customClass="CombinedChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="123" width="568" height="273"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="273" id="mNU-63-lDS"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MxA-XI-F7o" firstAttribute="leading" secondItem="rHv-FL-CPT" secondAttribute="leadingMargin" id="2NC-Vc-0zC"/>
-                            <constraint firstItem="MxA-XI-F7o" firstAttribute="trailing" secondItem="rHv-FL-CPT" secondAttribute="trailingMargin" id="dni-jM-D4X"/>
-                            <constraint firstItem="MxA-XI-F7o" firstAttribute="top" secondItem="mcP-vh-oZY" secondAttribute="bottom" constant="59" id="zh0-GP-8O4"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="combineViewChart" destination="MxA-XI-F7o" id="dlo-Od-Wna"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVN-fz-Uxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="1439"/>
+            <point key="canvasLocation" x="117" y="1673"/>
         </scene>
         <!--Test Chart View Controller-->
         <scene sceneID="wce-yv-udD">
             <objects>
-                <viewController id="L6W-Rc-Fv2" customClass="TestChartViewController" customModule="iOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L6W-Rc-Fv2" customClass="TestChartViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4ld-wf-kbH"/>
                         <viewControllerLayoutGuide type="bottom" id="g8S-mc-OGH"/>
@@ -529,12 +451,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMr-N3-RFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="1525"/>
+            <point key="canvasLocation" x="-543" y="1673"/>
         </scene>
-        <!--View Controller-->
+        <!--Blood Suger Analysis2 View Controller-->
+        <scene sceneID="4wL-Bh-HGi">
+            <objects>
+                <viewController id="gJj-xR-tae" customClass="BloodSugerAnalysis2ViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z78-kG-VV2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hbh-1b-5Sg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZBS-Ho-MwY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cu-OY-g5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="1673"/>
+        </scene>
+        <!--Blood Suger Analysis1 View Controller-->
         <scene sceneID="kNT-KH-oNA">
             <objects>
-                <viewController id="C65-pf-Hrl" sceneMemberID="viewController">
+                <viewController id="C65-pf-Hrl" customClass="BloodSugerAnalysis1ViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MFj-Dm-0kd"/>
                         <viewControllerLayoutGuide type="bottom" id="mFf-bC-nFc"/>
@@ -547,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oh-lj-zSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="1751"/>
+            <point key="canvasLocation" x="800" y="1667"/>
         </scene>
     </scenes>
 </document>

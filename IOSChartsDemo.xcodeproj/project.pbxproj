@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */; };
+		4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */; };
+		4B2891EC1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */; };
 		4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9111B82C1740056C990 /* AppDelegate.swift */; };
-		4B9BF9141B82C1740056C990 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9131B82C1740056C990 /* ViewController.swift */; };
-		4B9BF9171B82C1740056C990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9151B82C1740056C990 /* Main.storyboard */; };
 		4B9BF9191B82C1740056C990 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9181B82C1740056C990 /* Images.xcassets */; };
 		4B9BF91C1B82C1740056C990 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF91A1B82C1740056C990 /* LaunchScreen.xib */; };
 		4B9BF9281B82C1740056C990 /* IOSChartsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9271B82C1740056C990 /* IOSChartsDemoTests.swift */; };
+		4B9BF93A1B82C2B60056C990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9391B82C2B60056C990 /* Main.storyboard */; };
+		4B9BF93C1B82C2C80056C990 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF93B1B82C2C80056C990 /* BarChartViewController.swift */; };
+		4B9BF93D1B82C2DD0056C990 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9BF9361B82C24D0056C990 /* Charts.framework */; };
+		4B9BF93E1B82C2DD0056C990 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9BF9361B82C24D0056C990 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B9BF94A1B82C5EF0056C990 /* PieChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9431B82C5EF0056C990 /* PieChartsViewController.swift */; };
+		4B9BF94B1B82C5EF0056C990 /* DrawCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9441B82C5EF0056C990 /* DrawCharts.swift */; };
+		4B9BF94C1B82C5EF0056C990 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9451B82C5EF0056C990 /* LineChartViewController.swift */; };
+		4B9BF94D1B82C5EF0056C990 /* DrawChartsGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9461B82C5EF0056C990 /* DrawChartsGuide.swift */; };
+		4B9BF94E1B82C5EF0056C990 /* CubicLineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9471B82C5EF0056C990 /* CubicLineChartViewController.swift */; };
+		4B9BF94F1B82C5EF0056C990 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9481B82C5EF0056C990 /* CombineViewController.swift */; };
+		4B9BF9501B82C5EF0056C990 /* TestChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */; };
+		4B9BF9521B82C9710056C990 /* ProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9511B82C9710056C990 /* ProblemViewController.swift */; };
+		4B9BF9551B831C930056C990 /* bg_blood_pressure.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9541B831C930056C990 /* bg_blood_pressure.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,19 +37,60 @@
 			remoteGlobalIDString = 4B9BF90B1B82C1740056C990;
 			remoteInfo = IOSChartsDemo;
 		};
+		4B9BF9351B82C24D0056C990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
+		4B9BF93F1B82C2DD0056C990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4B9BF9411B82C2DD0056C990 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B9BF93E1B82C2DD0056C990 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerMonitorViewController.swift; sourceTree = "<group>"; };
+		4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysis1ViewController.swift; sourceTree = "<group>"; };
+		4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysis2ViewController.swift; sourceTree = "<group>"; };
 		4B9BF90C1B82C1740056C990 /* IOSChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9BF9101B82C1740056C990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9BF9111B82C1740056C990 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4B9BF9131B82C1740056C990 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4B9BF9161B82C1740056C990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B9BF9181B82C1740056C990 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4B9BF91B1B82C1740056C990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4B9BF9211B82C1740056C990 /* IOSChartsDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSChartsDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9BF9261B82C1740056C990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9BF9271B82C1740056C990 /* IOSChartsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChartsDemoTests.swift; sourceTree = "<group>"; };
+		4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		4B9BF9391B82C2B60056C990 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4B9BF93B1B82C2C80056C990 /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		4B9BF9431B82C5EF0056C990 /* PieChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartsViewController.swift; sourceTree = "<group>"; };
+		4B9BF9441B82C5EF0056C990 /* DrawCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawCharts.swift; sourceTree = "<group>"; };
+		4B9BF9451B82C5EF0056C990 /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		4B9BF9461B82C5EF0056C990 /* DrawChartsGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawChartsGuide.swift; sourceTree = "<group>"; };
+		4B9BF9471B82C5EF0056C990 /* CubicLineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicLineChartViewController.swift; sourceTree = "<group>"; };
+		4B9BF9481B82C5EF0056C990 /* CombineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
+		4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestChartViewController.swift; sourceTree = "<group>"; };
+		4B9BF9511B82C9710056C990 /* ProblemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemViewController.swift; sourceTree = "<group>"; };
+		4B9BF9541B831C930056C990 /* bg_blood_pressure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_blood_pressure.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B9BF93D1B82C2DD0056C990 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +112,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2891E61B86B762004FEA90 /* testViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */,
+				4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */,
+				4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */,
+			);
+			name = testViewController;
+			sourceTree = "<group>";
+		};
 		4B9BF9031B82C1740056C990 = {
 			isa = PBXGroup;
 			children = (
+				4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */,
 				4B9BF90E1B82C1740056C990 /* IOSChartsDemo */,
 				4B9BF9241B82C1740056C990 /* IOSChartsDemoTests */,
 				4B9BF90D1B82C1740056C990 /* Products */,
@@ -77,10 +144,20 @@
 		4B9BF90E1B82C1740056C990 /* IOSChartsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4B2891E61B86B762004FEA90 /* testViewController */,
+				4B9BF9511B82C9710056C990 /* ProblemViewController.swift */,
+				4B9BF9431B82C5EF0056C990 /* PieChartsViewController.swift */,
+				4B9BF9441B82C5EF0056C990 /* DrawCharts.swift */,
+				4B9BF9451B82C5EF0056C990 /* LineChartViewController.swift */,
+				4B9BF9461B82C5EF0056C990 /* DrawChartsGuide.swift */,
+				4B9BF9471B82C5EF0056C990 /* CubicLineChartViewController.swift */,
+				4B9BF9481B82C5EF0056C990 /* CombineViewController.swift */,
+				4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */,
+				4B9BF93B1B82C2C80056C990 /* BarChartViewController.swift */,
+				4B9BF9391B82C2B60056C990 /* Main.storyboard */,
 				4B9BF9111B82C1740056C990 /* AppDelegate.swift */,
-				4B9BF9131B82C1740056C990 /* ViewController.swift */,
-				4B9BF9151B82C1740056C990 /* Main.storyboard */,
 				4B9BF9181B82C1740056C990 /* Images.xcassets */,
+				4B9BF9541B831C930056C990 /* bg_blood_pressure.png */,
 				4B9BF91A1B82C1740056C990 /* LaunchScreen.xib */,
 				4B9BF90F1B82C1740056C990 /* Supporting Files */,
 			);
@@ -112,6 +189,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4B9BF9321B82C24D0056C990 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B9BF9361B82C24D0056C990 /* Charts.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +207,12 @@
 				4B9BF9081B82C1740056C990 /* Sources */,
 				4B9BF9091B82C1740056C990 /* Frameworks */,
 				4B9BF90A1B82C1740056C990 /* Resources */,
+				4B9BF9411B82C2DD0056C990 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B9BF9401B82C2DD0056C990 /* PBXTargetDependency */,
 			);
 			name = IOSChartsDemo;
 			productName = IOSChartsDemo;
@@ -179,6 +266,12 @@
 			mainGroup = 4B9BF9031B82C1740056C990;
 			productRefGroup = 4B9BF90D1B82C1740056C990 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4B9BF9321B82C24D0056C990 /* Products */;
+					ProjectRef = 4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4B9BF90B1B82C1740056C990 /* IOSChartsDemo */,
@@ -187,12 +280,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		4B9BF9361B82C24D0056C990 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 4B9BF9351B82C24D0056C990 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		4B9BF90A1B82C1740056C990 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B9BF9171B82C1740056C990 /* Main.storyboard in Resources */,
+				4B9BF9551B831C930056C990 /* bg_blood_pressure.png in Resources */,
+				4B9BF93A1B82C2B60056C990 /* Main.storyboard in Resources */,
 				4B9BF91C1B82C1740056C990 /* LaunchScreen.xib in Resources */,
 				4B9BF9191B82C1740056C990 /* Images.xcassets in Resources */,
 			);
@@ -212,8 +316,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B9BF9141B82C1740056C990 /* ViewController.swift in Sources */,
+				4B9BF94A1B82C5EF0056C990 /* PieChartsViewController.swift in Sources */,
+				4B9BF9501B82C5EF0056C990 /* TestChartViewController.swift in Sources */,
+				4B2891EC1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift in Sources */,
 				4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */,
+				4B9BF94F1B82C5EF0056C990 /* CombineViewController.swift in Sources */,
+				4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift in Sources */,
+				4B9BF9521B82C9710056C990 /* ProblemViewController.swift in Sources */,
+				4B9BF94E1B82C5EF0056C990 /* CubicLineChartViewController.swift in Sources */,
+				4B9BF94B1B82C5EF0056C990 /* DrawCharts.swift in Sources */,
+				4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */,
+				4B9BF93C1B82C2C80056C990 /* BarChartViewController.swift in Sources */,
+				4B9BF94C1B82C5EF0056C990 /* LineChartViewController.swift in Sources */,
+				4B9BF94D1B82C5EF0056C990 /* DrawChartsGuide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,17 +348,14 @@
 			target = 4B9BF90B1B82C1740056C990 /* IOSChartsDemo */;
 			targetProxy = 4B9BF9221B82C1740056C990 /* PBXContainerItemProxy */;
 		};
+		4B9BF9401B82C2DD0056C990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 4B9BF93F1B82C2DD0056C990 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4B9BF9151B82C1740056C990 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B9BF9161B82C1740056C990 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4B9BF91A1B82C1740056C990 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IOSChartsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IOSChartsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -409,6 +523,7 @@
 				4B9BF92D1B82C1740056C990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B9BF92E1B82C1740056C990 /* Build configuration list for PBXNativeTarget "IOSChartsDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +532,7 @@
 				4B9BF9301B82C1740056C990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

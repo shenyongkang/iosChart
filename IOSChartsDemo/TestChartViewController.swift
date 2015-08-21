@@ -13,42 +13,91 @@ class TestChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testHomePageChart()
         
+//        testHomePageChart()        
 //        testHistoryChart()
-        testBloodPressureChart()
-//        view.addSubview(DrawCharts.testCharts(CGRect(x: 0, y: 364, width: view.frame.width , height: 200)))
+//        testBloodPressureChart()
+//        testBloodPressureAnalysis()
+//        testBloodSugerAnalysis()
+//        testBodyFatAnalysis()
+        testBloodPressureAnalysisChart1()
+        testBloodPressureAnalysisChart2()
+        testBloodPressureAnalysisChart3()
 
-        // Do any additional setup after loading the view.
+    }
+    
+
+    func testBloodPressureAnalysisChart3(){
+        let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
+        var chartView = DrawCharts.bloodPressureAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 2, lowCount: 5)
+
+        view.addSubview(chartView)
+        
+    }
+    
+    func testBloodPressureAnalysisChart2(){
+        let unitsSold = [[150.0, 130, 90], [120.0, 140, 88], [123.0, 150, 80]]
+        var chartView = DrawCharts.bloodPressureAnalysisChart2(CGRect(x: view.frame.width * 2/5 , y: 164, width: view.frame.width * 3/5 , height: 100), data: unitsSold)
+        view.addSubview(chartView)
+        
+    }
+    
+    func testBloodPressureAnalysisChart1(){
+        let unitsSold = [[150.0, 130, 90], [120.0, 140, 88]]
+        var chartView = DrawCharts.bloodPressureAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 100), data: unitsSold)
+        view.addSubview(chartView)
+        
+    }
+    
+    
+    func testBodyFatAnalysis(){
+        let unitsSold = [[61.0, 74.0, 66.0, 63.0, 52.0, 60.0, 64.0], [31.0, 24.0, 26.0, 33.0, 32.0, 26.0, 24.0], [22.0, 24.0, 16.0, 17.0, 19.0, 17, 20]]
+        let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
+        var chartView = DrawCharts.bodyFatAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
+        view.addSubview(chartView)
+        
+        
+    }
+    
+    func testBloodSugerAnalysis(){
+        
+        let unitsSold = [4.0, 5.0, 6.0, 5.3, 7.0, 6.0, 4.0]
+        let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
+        var chartView = DrawCharts.bloodSugerAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
+        view.addSubview(chartView)
+        
+    }
+    
+    func testBloodPressureAnalysis(){
+        let unitsSold = [[141.0, 134.0, 126.0, 133.0, 122.0, 136.0, 134.0], [81.0, 94.0, 116.0, 83.0, 112.0, 126.0, 84.0], [72.0, 64.0, 86.0, 73.0, 92.0, 76, 60]]
+        let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
+        var chartView = DrawCharts.bloodPressureAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
+        view.addSubview(chartView)
+        
+        
     }
     
     
     func testBloodPressureChart() {
-        let unitsSold = [[141.0, 134.0, 126.0, 133.0, 122.0, 136.0, 134.0], [111.0, 94.0, 116.0, 103.0, 112.0, 126.0, 114.0], [72.0, 64.0, 86.0, 73.0, 92.0, 76.0, 74.0]]
+        let unitsSold = [[141.0, 134.0, 126.0, 133.0, 122.0, 136.0, 134.0], [111.0, 94.0, 116.0, 103.0, 112.0, 126.0, 114.0], [72.0, 64.0, 86.0, 73.0, 92.0, 76, 60]]
+        let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
         
         
-        var image = UIImage(named: "bg_blood_pressure.png")
-        
-        var backgroundImage = UIImageView(image: image)
-        backgroundImage.contentMode = UIViewContentMode.ScaleToFill
-        
-        backgroundImage.alpha = 1
-        backgroundImage.frame = CGRect(x: 30, y: 364, width: view.frame.width - 30 , height: 152)
-        view.addSubview(backgroundImage)
-        
-        var chartView = DrawCharts.bloodPressureMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 200), data: unitsSold)
+        var chartView = DrawCharts.bloodPressureMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: unitsSold, labels: dataLabels)
+        var bgView = DrawCharts.bloodPressureMonitorBG(CGRect(x: 0, y: 364, width: view.frame.width , height: 250))
+        view.addSubview(bgView)
         view.addSubview(chartView)
         
         
     }
     
-    func testHistoryChart()
-    {
-        let months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [21.0, 14.0, 16.0, 13.0, 12.0, 16.0, 14.0, 18.0, 12.0, 14.0, 15.0, 14.0]
-        var chartView = DrawchartsGuide.historyLine(CGRect(x: 0, y: 64, width: view.frame.width , height: 400), data: unitsSold, labels: months)
-        view.addSubview(chartView)
-    }
+//    func testHistoryChart()
+//    {
+//        let months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+//        let unitsSold = [21.0, 14.0, 16.0, 13.0, 12.0, 16.0, 14.0, 18.0, 12.0, 14.0, 15.0, 14.0]
+//        var chartView = DrawchartsGuide.historyLine(CGRect(x: 0, y: 64, width: view.frame.width , height: 400), data: unitsSold, labels: months)
+//        view.addSubview(chartView)
+//    }
     
     func testHomePageChart(){
         let unitsSold = [1.0, 13, 118, 113, 120, 1121, 1629, 2150, 2280, 3120, 3150, 3170, 3190, 4201, 4203, 4528, 4640, 4751, 5263, 5271, 5290, 5300, 5408, 5420, 5420]

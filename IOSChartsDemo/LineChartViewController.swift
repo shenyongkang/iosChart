@@ -104,9 +104,9 @@ class LineChartViewController: UIViewController {
         lineChartView.leftAxis.labelFont = UIFont.systemFontOfSize(12)
         lineChartView.leftAxis.labelTextColor = colors[2]
         
-//        lineChartView.leftAxis.startAtZeroEnabled = false
-//        lineChartView.leftAxis.customAxisMin = -5
-//        lineChartView.leftAxis.customAxisMax = 30
+        lineChartView.leftAxis.startAtZeroEnabled = false
+        lineChartView.leftAxis.customAxisMin = -5
+        lineChartView.leftAxis.customAxisMax = 30
 
 
         
@@ -116,7 +116,7 @@ class LineChartViewController: UIViewController {
         //设置图像背景
         lineChartView.gridBackgroundColor = UIColor.brownColor()
         lineChartView.backgroundColor = UIColor.brownColor()
-        print(lineChartView)
+        
         
         
     }

@@ -12,6 +12,7 @@ class BloodSugerAnalysis2ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        testBloodSugerAnalysis()
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +23,15 @@ class BloodSugerAnalysis2ViewController: UIViewController {
     }
     
 
+    func testBloodSugerAnalysis(){
+        
+        let unitsSold = [4.0, 5.0, 6.0, 5.3, 7.0, 6.0, 4.0]
+        let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
+        var chartView = DrawCharts.bloodSugerAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
+        view.addSubview(chartView)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
