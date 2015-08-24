@@ -26,11 +26,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "461817600.028157"
+            timestampString = "462101404.210374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "966"
+            endingLineNumber = "966"
+            landmarkName = "DrawCharts"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSChartsDemo/DrawCharts.swift"
+            timestampString = "462101404.210374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1022"
+            endingLineNumber = "1022"
             landmarkName = "bloodPressureAnalysisChart1(_:data:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +58,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "461817600.028157"
+            timestampString = "462101404.210374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "967"
+            endingLineNumber = "967"
+            landmarkName = "bloodPressureAnalysisChart1(_:data:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSChartsDemo/DrawCharts.swift"
+            timestampString = "462101404.210374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "965"
+            endingLineNumber = "965"
             landmarkName = "DrawCharts"
             landmarkType = "3">
          </BreakpointContent>

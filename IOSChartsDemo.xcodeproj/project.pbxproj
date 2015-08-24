@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */; };
-		4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */; };
-		4B2891EC1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */; };
+		4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift */; };
+		4B2891EC1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891EB1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift */; };
 		4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9111B82C1740056C990 /* AppDelegate.swift */; };
 		4B9BF9191B82C1740056C990 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9181B82C1740056C990 /* Images.xcassets */; };
 		4B9BF91C1B82C1740056C990 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF91A1B82C1740056C990 /* LaunchScreen.xib */; };
@@ -27,6 +27,9 @@
 		4B9BF9501B82C5EF0056C990 /* TestChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */; };
 		4B9BF9521B82C9710056C990 /* ProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9511B82C9710056C990 /* ProblemViewController.swift */; };
 		4B9BF9551B831C930056C990 /* bg_blood_pressure.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9541B831C930056C990 /* bg_blood_pressure.png */; };
+		4BB9AA6D1B8AB43700A4D459 /* BodyFatMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */; };
+		4BB9AA6F1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */; };
+		4BB9AA711B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +72,8 @@
 
 /* Begin PBXFileReference section */
 		4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerMonitorViewController.swift; sourceTree = "<group>"; };
-		4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysis1ViewController.swift; sourceTree = "<group>"; };
-		4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysis2ViewController.swift; sourceTree = "<group>"; };
+		4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysisDiagramViewController.swift; sourceTree = "<group>"; };
+		4B2891EB1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysisCurveViewController.swift; sourceTree = "<group>"; };
 		4B9BF90C1B82C1740056C990 /* IOSChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9BF9101B82C1740056C990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9BF9111B82C1740056C990 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +94,9 @@
 		4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestChartViewController.swift; sourceTree = "<group>"; };
 		4B9BF9511B82C9710056C990 /* ProblemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemViewController.swift; sourceTree = "<group>"; };
 		4B9BF9541B831C930056C990 /* bg_blood_pressure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_blood_pressure.png; sourceTree = "<group>"; };
+		4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatMonitorViewController.swift; sourceTree = "<group>"; };
+		4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatAnalysisDiagramViewController.swift; sourceTree = "<group>"; };
+		4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatAnalysisCurveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */,
-				4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift */,
-				4B2891EB1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift */,
+				4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift */,
+				4B2891EB1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift */,
+				4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */,
+				4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */,
+				4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */,
 			);
 			name = testViewController;
 			sourceTree = "<group>";
@@ -318,13 +327,16 @@
 			files = (
 				4B9BF94A1B82C5EF0056C990 /* PieChartsViewController.swift in Sources */,
 				4B9BF9501B82C5EF0056C990 /* TestChartViewController.swift in Sources */,
-				4B2891EC1B86B887004FEA90 /* BloodSugerAnalysis2ViewController.swift in Sources */,
+				4B2891EC1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift in Sources */,
 				4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */,
+				4BB9AA711B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift in Sources */,
 				4B9BF94F1B82C5EF0056C990 /* CombineViewController.swift in Sources */,
-				4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysis1ViewController.swift in Sources */,
+				4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift in Sources */,
 				4B9BF9521B82C9710056C990 /* ProblemViewController.swift in Sources */,
+				4BB9AA6F1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift in Sources */,
 				4B9BF94E1B82C5EF0056C990 /* CubicLineChartViewController.swift in Sources */,
 				4B9BF94B1B82C5EF0056C990 /* DrawCharts.swift in Sources */,
+				4BB9AA6D1B8AB43700A4D459 /* BodyFatMonitorViewController.swift in Sources */,
 				4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */,
 				4B9BF93C1B82C2C80056C990 /* BarChartViewController.swift in Sources */,
 				4B9BF94C1B82C5EF0056C990 /* LineChartViewController.swift in Sources */,

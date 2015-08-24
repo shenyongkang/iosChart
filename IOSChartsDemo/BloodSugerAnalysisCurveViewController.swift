@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BloodSugerAnalysis2ViewController: UIViewController {
+class BloodSugerAnalysisCurveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

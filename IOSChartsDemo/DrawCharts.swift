@@ -15,169 +15,28 @@ import Charts
 public class DrawCharts{
     
     
-    
-    ///get blood suger minotor chart1
-    static public func bloodSugerAnalysisChart1(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
-        
-        var chartView = PieChartView(frame: frame)
-        let colors = [UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 1),
-            UIColor(red: 253/255, green: 99/255, blue: 28/255, alpha: 1),
-            UIColor(red: 255/255, green: 57/255, blue: 43/255, alpha: 1)]
-        
-        var dataLabels: [String] = ["正常\n", "偏低 \n", "偏高\n"]
-        
-        
-        
-        var dataEntries :[ChartDataEntry] = []
-        var totalCount = normalCount + highCount + lowCount
-        
-        
-        dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 1))
-        dataEntries.append(ChartDataEntry(value: Double(normalCount)/Double(totalCount), xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: Double(highCount)/Double(totalCount), xIndex: 2))
-        
-        //数据设置
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries ,label: "")
-        let pieChartData = PieChartData(xVals: dataLabels, dataSet: pieChartDataSet)
-        pieChartDataSet.colors = colors
-        //设置扇形区域字体
-        pieChartDataSet.drawValuesEnabled = false
-        
-        chartView.data = pieChartData
-        
-        //动画设置
-        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
 
-        //中心区域比例
-        chartView.holeRadiusPercent = 0.6
-        //        //中心带边框比例
-        chartView.transparentCircleRadiusPercent = 0.65
-        chartView.descriptionText = ""
-//        chartView.legend.enabled = false
-        chartView.drawSliceTextEnabled = false
-        chartView.legend.position = ChartLegend.ChartLegendPosition.RightOfChart
-        chartView.legend.formLineWidth = 10
-        chartView.legend.font = UIFont.systemFontOfSize(12)
-        chartView.userInteractionEnabled = false
-        
-        return chartView
-        
-    }
+    //********************************************************************************************************
     
     
-    /// get blood pressure analysis diagram page chart 3
-    static public func bloodPressureAnalysisChart3(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
-    
-        var chartView = PieChartView(frame: frame)
-        let colors = [UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 0.8),
-            UIColor(red: 255/255, green: 36/255, blue: 35/255, alpha: 0.8),
-            UIColor(red: 254/255, green: 140/255, blue: 0/255, alpha: 0.8)]
+    /// get body fat analysis diagram page chart 1
+    static public func bodyFatAnalysisChart1(frame: CGRect, data: [[Double]]) ->BarChartView{
         
-        var dataLabels: [String] = [" ", " ", " "]
-
-        
-        var dataEntries :[ChartDataEntry] = []
-        var totalCount = normalCount + highCount + lowCount
-
-        dataEntries.append(ChartDataEntry(value: Double(highCount)/Double(totalCount), xIndex: 2))
-        dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: Double(normalCount)/Double(totalCount), xIndex: 1))
-
-        //数据设置
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries ,label: "")
-        let pieChartData = PieChartData(xVals: dataLabels, dataSet: pieChartDataSet)
-        pieChartDataSet.colors = colors
-        //设置扇形区域字体
-        pieChartDataSet.drawValuesEnabled = false
-        chartView.data = pieChartData
-        
-        //动画设置
-        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-//        中心区域文字设置
-//        chartView.centerText = "\(values.count)\n 测量次数"
-//        chartView.centerTextFont = UIFont.systemFontOfSize(14)
-        //中心区域比例
-        chartView.holeRadiusPercent = 0.8
-//        //中心带边框比例
-//        chartView.transparentCircleRadiusPercent = 0.3
-        chartView.descriptionText = ""
-//        chartView.backgroundColor = UIColor.brownColor()
-        chartView.legend.enabled = false
-        chartView.userInteractionEnabled = false
-        
-        return chartView
-    }
-    
-    
-    /// get blood pressure analysis diagram page chart 1
-    static public func bloodPressureAnalysisChart1(frame: CGRect, data: [[Double]]) ->BarChartView{
-        
-        let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
+        var colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
-            UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
+            UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)]
         
         var dataLabels: [String] = ["最高值", "最低值"]
         let values = data
         
-        
-        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: 3, repeatedValue: [])
-        for i in 0..<values.count{
-            for j in 0..<values[i].count{
-                let dataEntry = BarChartDataEntry(value: values[i][j], xIndex: i)
-                dataEntries[j].append(dataEntry)
-            }
-            
+        if values.count > colors.count {
+            var tempView = BarChartView(frame: frame)
+            tempView.noDataTextDescription = "非合理数据"
+            return tempView
         }
-//        print(dataEntries)
-        
-        var chartView = BarChartView(frame: frame)
-        var barChartDataSets: [BarChartDataSet] = []
-        for i in 0..<dataEntries.count{
-            barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
-            barChartDataSets[i].barSpace = 0.15
-
-            barChartDataSets[i].colors = [colors[i]]
-            barChartDataSets[i].drawValuesEnabled = false
-            
-        }
-        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
-        barChartData.groupSpace = 3
-        chartView.data = barChartData
-//        chartView.xAxis.enabled = false
-        chartView.xAxis.labelPosition = .Bottom
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.axisLineWidth = 1
-        chartView.xAxis.axisLineColor = UIColor.blackColor()
-        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
-        
-        chartView.xAxis.labelTextColor = UIColor.blackColor()
-        chartView.extraBottomOffset = 10
-        
-        chartView.leftAxis.enabled = false
-        chartView.rightAxis.enabled = false
-        chartView.gridBackgroundColor = UIColor.whiteColor()
-        chartView.backgroundColor = UIColor.whiteColor()
-        chartView.legend.enabled = false
-        chartView.descriptionText = ""
-        //动作
-        chartView.userInteractionEnabled = false
-        return chartView
-        
-    }
-    
-    
-    /// get blood pressure analysis diagram page chart 2
-    static public func bloodPressureAnalysisChart2(frame: CGRect, data: [[Double]]) ->BarChartView{
-        
-        let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
-            UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
-            UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
-        
-        var dataLabels: [String] = ["早上", "晚上", "其他"]
-        let values = data
         
         
-        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: 3, repeatedValue: [])
+        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: values[0].count, repeatedValue: [])
         for i in 0..<values.count{
             for j in 0..<values[i].count{
                 let dataEntry = BarChartDataEntry(value: values[i][j], xIndex: i)
@@ -191,24 +50,99 @@ public class DrawCharts{
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
-            barChartDataSets[i].barSpace = 0.15
+            barChartDataSets[i].barSpace = 0.55
+            barChartDataSets[i].valueFont = UIFont.boldSystemFontOfSize(12)
+            var numberFormatter = NSNumberFormatter()
+            numberFormatter.maximumFractionDigits = 1
+            barChartDataSets[i].valueFormatter = numberFormatter
             
             barChartDataSets[i].colors = [colors[i]]
-            barChartDataSets[i].drawValuesEnabled = false
+//            barChartDataSets[i].drawValuesEnabled = false
             
         }
         var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
-        barChartData.groupSpace = 3
+        barChartData.groupSpace = 1.5
         chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         //        chartView.xAxis.enabled = false
         chartView.xAxis.labelPosition = .Bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.axisLineWidth = 1
-        chartView.xAxis.axisLineColor = UIColor.blackColor()
+        chartView.xAxis.axisLineColor = colors[2]
         chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        
+        chartView.xAxis.labelTextColor = colors[2]
+        
+        
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.extraTopOffset = 20
+        chartView.extraBottomOffset = 10
+        chartView.gridBackgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.legend.enabled = false
+        chartView.descriptionText = ""
+        //动作
+        chartView.userInteractionEnabled = false
+        chartView.notifyDataSetChanged()
+//        chartView.backgroundColor = UIColor.brownColor()
+
+        return chartView
+        
+    }
+    
+    //********************************************************************************************************
+    
+    /// get body fat analysis diagram page chart 2
+    static public func bodyFatAnalysisChart2(frame: CGRect, data: [[Double]]) ->BarChartView{
+        
+        let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
+            UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
+            UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)]
+        
+        var dataLabels: [String] = ["早上", "晚上", "其他"]
+        let values = data
+        
+        
+        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: values[0].count, repeatedValue: [])
+        for i in 0..<values.count{
+            for j in 0..<values[i].count{
+                let dataEntry = BarChartDataEntry(value: values[i][j], xIndex: i)
+                dataEntries[j].append(dataEntry)
+            }
+            
+        }
+        //        print(dataEntries)
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSets: [BarChartDataSet] = []
+        for i in 0..<dataEntries.count{
+            barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
+            barChartDataSets[i].barSpace = 0.55
+            var numberFormatter = NSNumberFormatter()
+            numberFormatter.maximumFractionDigits = 1
+            barChartDataSets[i].valueFormatter = numberFormatter
+            barChartDataSets[i].colors = [colors[i]]
+            barChartDataSets[i].valueFont = UIFont.boldSystemFontOfSize(12)
+//            barChartDataSets[i].drawValuesEnabled = false
+            
+        }
+        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        barChartData.groupSpace = 1.5
+        chartView.data = barChartData
+        //        chartView.xAxis.enabled = false
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.axisLineColor = colors[2]
+        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        chartView.xAxis.labelTextColor = colors[2]
         
         chartView.xAxis.labelTextColor = UIColor.blackColor()
         chartView.extraBottomOffset = 10
+        chartView.extraTopOffset = 20
         
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
@@ -219,14 +153,168 @@ public class DrawCharts{
         chartView.setScaleEnabled(false)
         //动作
         chartView.userInteractionEnabled = false
+//        chartView.backgroundColor = UIColor.brownColor()
+        chartView.notifyDataSetChanged()
         return chartView
         
     }
-   
-    //************************************************************************************************************
-    /// get body fat analysis charts
-    static public func bodyFatAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->LineChartView{
+    
+
+    
+    //********************************************************************************************************
+    
+    /// get body fat analysis diagram page chart 3
+    static public func bodyFatAnalysisChart3(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+        return analysisChart3(frame: frame, normalCount: normalCount, highCount: highCount, lowCount: lowCount)
         
+    }
+    
+    //********************************************************************************************************
+
+    
+    ///get blood fat monitor chart
+    static public func bodyFatMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView {
+        var myView = UIView(frame: frame)
+        
+        
+        let colors = [UIColor(red: 11/255, green: 209/255, blue: 80/255, alpha: 1),
+            UIColor(red: 249/255, green: 153/255, blue: 38/255, alpha: 1),
+            UIColor(red: 75/255, green: 189/255, blue: 210/255, alpha: 1),
+            UIColor(red: 30/255, green: 250/255, blue: 30/255, alpha: 0.8),
+            UIColor(red: 250/255, green: 30/255, blue: 30/255, alpha: 0.8),
+            UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1),
+            UIColor(red: 244/255, green: 170/255, blue: 103/255, alpha: 1),
+            UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
+        
+        
+        var dataLabels: [String] = []
+        for item in labels{
+            dataLabels.append("")
+            dataLabels.append(item)
+        }
+        dataLabels.append("")
+        let values = data
+        
+        var xValues: [[Int]] = []
+        for i in 0..<values.count{
+            var tempXValues: [Int] = []
+            for j in 0..<values[i].count{
+                tempXValues.append(2 * j + 1)
+            }
+            xValues.append(tempXValues)
+        }
+        
+        
+        
+        var dataEntries: [ [ChartDataEntry] ] = []
+        for i in 0..<values.count{
+            var entries: [ChartDataEntry] = []
+            for j in 0..<values[i].count{
+                let dataEntry = ChartDataEntry(value: values[i][j], xIndex: xValues[i][j])
+                entries.append(dataEntry)
+            }
+            dataEntries.append(entries)
+            
+        }
+        
+        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        
+        var lineChartDataSets: [LineChartDataSet] = []
+        lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "体重"))
+        lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[1], label: "体脂率"))
+        lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[2], label: "BMI"))
+        
+        
+        for i in 0..<lineChartDataSets.count{
+            lineChartDataSets[i].colors = [colors[i]]
+            lineChartDataSets[i].drawCircleHoleEnabled = false
+            lineChartDataSets[i].circleColors = [colors[i]]
+            lineChartDataSets[i].circleRadius = 3.5
+            //            lineChartDataSets[i].drawCubicEnabled = false
+            lineChartDataSets[i].drawValuesEnabled = false
+            lineChartDataSets[i].lineWidth = 1
+        }
+        
+        
+        //设置data
+        
+        let lineChartData = LineChartData(xVals: dataLabels, dataSets: lineChartDataSets)
+        chartView.data = lineChartData
+        
+        //设置动画
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .Linear)
+        
+        //设置X Y 轴及网格参数
+        
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.drawAxisLineEnabled = false
+        chartView.xAxis.axisLineColor = colors[1]
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.labelTextColor = colors[5]
+        chartView.xAxis.spaceBetweenLabels = 1
+        chartView.xAxis.avoidFirstLastClippingEnabled = true
+        chartView.xAxis.setLabelsToSkip(0)
+        
+        chartView.rightAxis.enabled = false
+        chartView.leftAxis.startAtZeroEnabled = false
+        chartView.leftAxis.drawGridLinesEnabled = false
+        chartView.leftAxis.customAxisMin = 0
+        chartView.leftAxis.customAxisMax = 120
+        chartView.leftAxis.drawAxisLineEnabled = false
+        chartView.leftAxis.gridLineWidth = 1
+        chartView.leftAxis.setLabelCount(7, force: true)
+        chartView.leftAxis.labelFont = UIFont.systemFontOfSize(12)
+        chartView.leftAxis.labelTextColor = colors[6]
+        //  chartView.leftAxis.drawLabelsEnabled = false
+        
+        //value格式化
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.maximumFractionDigits = 0
+        chartView.leftAxis.valueFormatter = numberFormatter
+        
+        //target line
+        var targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        var targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
+        targetLine185.lineDashLengths = [3.0, 3.0]
+        targetLine185.lineColor = colors[3]
+        targetLine185.lineWidth = 0.5
+        targetLine185.valueTextColor = colors[6]
+        targetLine185.valueFont = UIFont.systemFontOfSize(12)
+        targetLine249.lineDashLengths = [3.0, 3.0]
+        targetLine249.lineColor = colors[4]
+        targetLine249.lineWidth = 0.5
+        targetLine249.valueTextColor = colors[4]
+        targetLine249.valueFont = UIFont.systemFontOfSize(12)
+        
+        chartView.leftAxis.addLimitLine(targetLine185)
+        chartView.leftAxis.addLimitLine(targetLine249)
+        
+        
+        //设置图像description
+        chartView.descriptionText = ""
+        chartView.legend.position = ChartLegend.ChartLegendPosition.BelowChartLeft
+        
+        //background
+        chartView.backgroundColor = colors[7]
+//        chartView.gridBackgroundColor = UIColor.brownColor()
+        chartView.gridBackgroundColor = colors[7]
+        
+        //动作
+        chartView.setScaleEnabled(false)
+        
+        chartView.notifyDataSetChanged()
+        //添加背景
+        addBodyFatMonitorBG(myView, contentFrame:chartView.contentRect)
+        myView.addSubview(chartView)
+        
+        return myView
+    }
+        
+    
+    //********************************************************************************************************
+    /// get body fat analysis curve page chart
+    static public func bodyFatAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->LineChartView{        
         
         
         let colors = [UIColor(red: 61/255, green: 180/255, blue: 195/255, alpha: 1),
@@ -256,7 +344,7 @@ public class DrawCharts{
             dataEntries.append(entries)
             
         }
-
+        
         
         var chartView = LineChartView(frame: frame)
         
@@ -320,7 +408,7 @@ public class DrawCharts{
         
         var numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
-
+        
         chartView.leftAxis.valueFormatter = numberFormatter
         
         
@@ -375,10 +463,351 @@ public class DrawCharts{
         return chartView
         
     }
+    
+    //********************************************************************************************************
 
     
-    //************************************************************************************************************
-    ///get blood suger analysis charts
+    /// get blood suger analysis diagram page chart 3
+    static public func bloodSugerAnalysisChart3(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+        return analysisChart3(frame: frame, normalCount: normalCount, highCount: highCount, lowCount: lowCount)
+        
+    }
+    
+    //********************************************************************************************************
+
+    /// get blood suger analysis diagram page chart 2
+    static public func bloodSugerAnalysisChart2(frame: CGRect, data: [Double]) ->BarChartView {
+        
+        let colors = [
+            UIColor(red: 15/255, green: 227/255, blue: 74/255, alpha: 1),
+            UIColor(red: 255/255, green: 143/255, blue: 0/255, alpha: 1),
+            UIColor(red: 227/255, green: 57/255, blue: 42/255, alpha: 1),
+            UIColor(red: 227/255, green: 57/255, blue: 42/255, alpha: 1),
+            //x label color
+            UIColor(red: 86/255, green: 86/255, blue: 86/255, alpha: 1)
+            
+        ]
+        
+        var dataLabels: [String] = ["空腹", "餐前", "餐后","睡前"]
+        let values = data
+        
+        
+        var dataEntries :[BarChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        
+        barChartDataSet.barSpace = 0.65
+        barChartDataSet.colors = colors
+        barChartDataSet.drawValuesEnabled = true
+        barChartDataSet.valueFont = UIFont.boldSystemFontOfSize(16)
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.maximumFractionDigits = 0
+        barChartDataSet.valueFormatter = numberFormatter
+        
+        
+        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        //        chartView.xAxis.enabled = false
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.axisLineColor = colors[4]
+        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        
+        chartView.xAxis.labelTextColor = colors[4]
+        chartView.extraBottomOffset = 10
+        chartView.extraTopOffset = 15
+        
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.gridBackgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.legend.enabled = false
+        chartView.descriptionText = ""
+        //动作
+        chartView.userInteractionEnabled = false
+        return chartView
+    }
+    
+    //********************************************************************************************************
+
+    /// get blood suger analysis diagram page chart 1
+    static public func bloodSugerAnalysisChart1(frame: CGRect, data: [Double]) ->BarChartView {
+        
+        let colors = [UIColor(red: 227/255, green: 57/255, blue: 42/255, alpha: 1),
+            UIColor(red: 255/255, green: 143/255, blue: 0/255, alpha: 1),
+            //x label color
+            UIColor(red: 86/255, green: 86/255, blue: 86/255, alpha: 1)]
+        
+        var dataLabels: [String] = ["最高值", "最低值"]
+        let values = data
+        
+        
+        var dataEntries :[BarChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+
+        barChartDataSet.barSpace = 0.65
+        barChartDataSet.colors = colors
+        barChartDataSet.drawValuesEnabled = true
+        barChartDataSet.valueFont = UIFont.boldSystemFontOfSize(16)
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.maximumFractionDigits = 0
+        barChartDataSet.valueFormatter = numberFormatter
+            
+
+        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        //        chartView.xAxis.enabled = false
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.axisLineColor = colors[2]
+        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        
+        chartView.xAxis.labelTextColor = colors[2]
+        chartView.extraBottomOffset = 10
+        chartView.extraTopOffset = 15
+        
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.gridBackgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.legend.enabled = false
+        chartView.descriptionText = ""
+        //动作
+        chartView.userInteractionEnabled = false
+        return chartView
+    }
+    //********************************************************************************************************
+
+    
+    ///get blood suger Monitor chart2
+    static public func bloodSugerMonitorChart2(frame: CGRect, data: [Double], labels: [String]) ->UIView {
+        
+        var myView = UIView(frame: frame)
+        
+        let colors = [
+            //折线颜色 0
+            UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1),
+            //value > 7.8 circle color 1
+            UIColor(red: 233/255, green: 112/255, blue: 102/255, alpha: 1),
+            // 3.9 < value < 7.8 circle color 2
+            UIColor(red: 101/255, green: 232/255, blue: 133/255, alpha: 1),
+            // value < 3.9 colors 3
+            UIColor(red: 251/255, green: 139/255, blue: 99/255, alpha: 0.8),
+            // x label color 4
+            UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1),
+            //y label color 5
+            
+            UIColor(red: 244/255, green: 170/255, blue: 103/255, alpha: 1),
+            // transparent color 6
+            UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 0),
+            // target line 3.9 color 7
+            UIColor(red: 97/255, green: 154/255, blue: 228/255, alpha: 1.0),
+            // target line  6.1 color 8
+            UIColor(red: 226/255, green: 106/255, blue: 92/255, alpha: 1.0),
+            // target line 7.8 color 9
+            UIColor(red: 253/255, green: 134/255, blue: 91/255, alpha: 1.0)
+        ]
+        
+        
+        var dataLabels: [String] = []
+        for item in labels{
+            dataLabels.append("")
+            dataLabels.append(item)
+        }
+        dataLabels.append("")
+        
+        let values = data
+        var xValues: [Int] = []
+        for i in 0..<values.count{
+            xValues.append(2 * i + 1)
+        }
+        
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: xValues[i])
+            dataEntries.append(dataEntry)
+            
+        }
+        var circleColors: [UIColor] = []
+        for value in values {
+            if value > 7.8 {
+                circleColors.append(colors[1])
+            }
+            else if value > 3.9{
+                circleColors.append(colors[2])
+            }
+            else{
+                circleColors.append(colors[3])
+            }
+        }
+        
+        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        
+        var lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
+        lineChartDataSet.colors = [colors[0]]
+        lineChartDataSet.drawCircleHoleEnabled = true
+        lineChartDataSet.circleColors = circleColors
+        lineChartDataSet.circleRadius = 4
+        //            lineChartDataSets[i].drawCubicEnabled = false
+        lineChartDataSet.drawValuesEnabled = false
+        lineChartDataSet.lineWidth = 1
+        
+        
+        //设置data
+        
+        let lineChartData = LineChartData(xVals: dataLabels, dataSet: lineChartDataSet)
+        chartView.data = lineChartData
+        
+        //设置动画
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .Linear)
+        
+        //设置X Y 轴及网格参数
+        
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.drawAxisLineEnabled = false
+        chartView.xAxis.axisLineColor = colors[1]
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.labelTextColor = colors[4]
+        chartView.xAxis.spaceBetweenLabels = 1
+        chartView.xAxis.avoidFirstLastClippingEnabled = true
+        chartView.xAxis.setLabelsToSkip(0)
+        chartView.xAxis
+        
+        chartView.rightAxis.enabled = false
+        chartView.leftAxis.startAtZeroEnabled = false
+        chartView.leftAxis.drawGridLinesEnabled = false
+        chartView.leftAxis.customAxisMin = 3
+        chartView.leftAxis.customAxisMax = 15
+        chartView.leftAxis.drawAxisLineEnabled = false
+        chartView.leftAxis.gridLineWidth = 1
+        chartView.leftAxis.setLabelCount(7, force: true)
+        chartView.leftAxis.labelFont = UIFont.systemFontOfSize(12)
+        chartView.leftAxis.labelTextColor = colors[5]
+        //  chartView.leftAxis.drawLabelsEnabled = false
+        
+        //value格式化
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.maximumFractionDigits = 0
+        chartView.leftAxis.valueFormatter = numberFormatter
+        
+        //target line
+        var targetLine39 = ChartLimitLine(limit: 3.9, label: "3.9")
+        var targetLine61 = ChartLimitLine(limit: 6.1, label: "6.1")
+        var targetLine78 = ChartLimitLine(limit: 7.8, label: "7.8")
+        targetLine39.lineDashLengths = [3.0, 3.0]
+        targetLine39.lineColor = colors[7]
+        targetLine39.lineWidth = 0.5
+        targetLine39.valueTextColor = colors[7]
+        
+        targetLine61.lineDashLengths = [3.0, 3.0]
+        targetLine61.lineColor = colors[8]
+        targetLine61.lineWidth = 0.5
+        targetLine61.valueTextColor = colors[8]
+        
+        targetLine78.lineDashLengths = [3.0, 3.0]
+        targetLine78.lineColor = colors[9]
+        targetLine78.lineWidth = 0.5
+        targetLine78.valueTextColor = colors[9]
+        
+        chartView.leftAxis.addLimitLine(targetLine39)
+        chartView.leftAxis.addLimitLine(targetLine61)
+        chartView.leftAxis.addLimitLine(targetLine78)
+        
+        //设置图像description
+        chartView.descriptionText = ""
+        chartView.legend.position = ChartLegend.ChartLegendPosition.BelowChartLeft
+        
+        //background
+        chartView.backgroundColor = colors[6]
+//        chartView.gridBackgroundColor = UIColor.brownColor()
+        chartView.gridBackgroundColor = colors[6]
+        // legent
+        chartView.legend.enabled = false
+        
+        //动作
+        chartView.setScaleEnabled(false)
+        chartView.notifyDataSetChanged()
+        
+        addBloodSugerMonitorBG(myView, contentFrame: chartView.contentRect)
+        myView.addSubview(chartView)
+        return myView
+        
+    }
+    
+    //********************************************************************************************************
+
+    ///get blood suger Monitor chart1
+    static public func bloodSugerMonitorChart1(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+        
+        var chartView = PieChartView(frame: frame)
+        let colors = [UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 1),
+            UIColor(red: 253/255, green: 99/255, blue: 28/255, alpha: 1),
+            UIColor(red: 255/255, green: 57/255, blue: 43/255, alpha: 1)]
+        
+        var dataLabels: [String] = ["正常", "偏低", "偏高"]
+        
+        
+        
+        var dataEntries :[ChartDataEntry] = []
+        var totalCount = normalCount + highCount + lowCount
+        
+        
+        dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(normalCount)/Double(totalCount), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(highCount)/Double(totalCount), xIndex: 2))
+        
+        //数据设置
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries ,label: "")
+        let pieChartData = PieChartData(xVals: dataLabels, dataSet: pieChartDataSet)
+        pieChartDataSet.colors = colors
+        //设置扇形区域字体
+        pieChartDataSet.drawValuesEnabled = false
+        
+        chartView.data = pieChartData
+        
+        //动画设置
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+
+        //中心区域比例
+        chartView.holeRadiusPercent = 0.6
+        //        //中心带边框比例
+        chartView.transparentCircleRadiusPercent = 0.65
+        chartView.descriptionText = ""
+//        chartView.legend.enabled = false
+        chartView.drawSliceTextEnabled = false
+        chartView.legend.position = ChartLegend.ChartLegendPosition.RightOfChart
+
+        chartView.legend.font = UIFont.systemFontOfSize(10)
+        chartView.legend.formSize = 10
+        
+        chartView.userInteractionEnabled = false
+//        chartView.backgroundColor = UIColor.brownColor()
+
+        
+        return chartView
+        
+    }
+    
+    //********************************************************************************************************
+    ///get blood suger curve page analysis charts
     static public func bloodSugerAnalysis(frame: CGRect, data: [Double], labels: [String]) ->LineChartView {
         
         
@@ -409,20 +838,20 @@ public class DrawCharts{
         var circleColors: [UIColor] = []
         for i in 0..<values.count{
             if (values[i] > 6.1){
-                    circleColors.append(colors[0])
-                }
-                else {
-                    circleColors.append(colors[1])
-                }
+                circleColors.append(colors[0])
+            }
+            else {
+                circleColors.append(colors[1])
+            }
         }
         
         
         
         var chartView = LineChartView(frame: frame)
         var lineChartDataSet: LineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "血糖")
-            
+        
         lineChartDataSet.colors = [colors[2]]
-            
+        
         lineChartDataSet.drawCircleHoleEnabled = true
         lineChartDataSet.circleColors = circleColors
         lineChartDataSet.circleRadius = 5
@@ -433,7 +862,7 @@ public class DrawCharts{
         lineChartDataSet.fillAlpha = 0.7
         
         lineChartDataSet.lineWidth = 1
-
+        
         
         
         //设置data
@@ -461,15 +890,15 @@ public class DrawCharts{
         chartView.leftAxis.drawAxisLineEnabled = false
         chartView.leftAxis.gridColor = colors[4]
         chartView.leftAxis.gridLineWidth = 0.2
-//        chartView.leftAxis.gridLineDashLengths = [5.0, 5.0]
-//        chartView.leftAxis.setLabelCount(11, force: false)
+        //        chartView.leftAxis.gridLineDashLengths = [5.0, 5.0]
+        //        chartView.leftAxis.setLabelCount(11, force: false)
         chartView.leftAxis.labelFont = UIFont.systemFontOfSize(12)
         chartView.leftAxis.labelTextColor = colors[3]
         chartView.leftAxis.customAxisMax = 15
         //        chartView.leftAxis.drawLabelsEnabled = false
         
         
-
+        
         //设置图像description
         chartView.descriptionText = ""
         chartView.legend.enabled = false
@@ -519,12 +948,142 @@ public class DrawCharts{
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         chartView.layer.addSublayer(gradientLayer)
-
+        
         return chartView
     }
     
+    //********************************************************************************************************
+
     
-    //************************************************************************************************************
+    /// get blood pressure analysis diagram page chart 3
+    static public func bloodPressureAnalysisChart3(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+        return analysisChart3(frame: frame, normalCount: normalCount, highCount: highCount, lowCount: lowCount)
+        
+    }
+    //********************************************************************************************************
+
+    
+    /// get blood pressure analysis diagram page chart 1
+    static public func bloodPressureAnalysisChart1(frame: CGRect, data: [[Double]]) ->BarChartView{
+        
+        let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
+            UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
+            UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
+        
+        var dataLabels: [String] = ["最高值", "最低值"]
+        let values = data
+        
+        
+        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: 3, repeatedValue: [])
+        for i in 0..<values.count{
+            for j in 0..<values[i].count{
+                let dataEntry = BarChartDataEntry(value: values[i][j], xIndex: i)
+                dataEntries[j].append(dataEntry)
+            }
+            
+        }
+//        print(dataEntries)
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSets: [BarChartDataSet] = []
+        for i in 0..<dataEntries.count{
+            barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
+            barChartDataSets[i].barSpace = 0.15
+
+            barChartDataSets[i].colors = [colors[i]]
+            barChartDataSets[i].drawValuesEnabled = false
+            
+        }
+        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        barChartData.groupSpace = 3
+        chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+//        chartView.xAxis.enabled = false
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.axisLineColor = UIColor.blackColor()
+        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        
+        chartView.xAxis.labelTextColor = UIColor.blackColor()
+        chartView.extraBottomOffset = 10
+        
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.gridBackgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.legend.enabled = false
+        chartView.descriptionText = ""
+        //动作
+        chartView.userInteractionEnabled = false
+        return chartView
+        
+    }
+    
+    //********************************************************************************************************
+
+    /// get blood pressure analysis diagram page chart 2
+    static public func bloodPressureAnalysisChart2(frame: CGRect, data: [[Double]]) ->BarChartView{
+        
+        let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
+            UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
+            UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
+        
+        var dataLabels: [String] = ["早上", "晚上", "其他"]
+        let values = data
+        
+        
+        var dataEntries :[[BarChartDataEntry]] = [[BarChartDataEntry]](count: 3, repeatedValue: [])
+        for i in 0..<values.count{
+            for j in 0..<values[i].count{
+                let dataEntry = BarChartDataEntry(value: values[i][j], xIndex: i)
+                dataEntries[j].append(dataEntry)
+            }
+            
+        }
+        //        print(dataEntries)
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSets: [BarChartDataSet] = []
+        for i in 0..<dataEntries.count{
+            barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
+            barChartDataSets[i].barSpace = 0.15
+            
+            barChartDataSets[i].colors = [colors[i]]
+            barChartDataSets[i].drawValuesEnabled = false
+            
+        }
+        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        barChartData.groupSpace = 3
+        chartView.data = barChartData
+        //        chartView.xAxis.enabled = false
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.axisLineWidth = 1
+        chartView.xAxis.axisLineColor = UIColor.blackColor()
+        chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        
+        chartView.xAxis.labelTextColor = UIColor.blackColor()
+        chartView.extraBottomOffset = 10
+        
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.gridBackgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.legend.enabled = false
+        chartView.descriptionText = ""
+        chartView.setScaleEnabled(false)
+        //动作
+        chartView.userInteractionEnabled = false
+        return chartView
+        
+    }
+   
+
+
+    //********************************************************************************************************
     
     ///get blood pressure analysis curve page charts
     static public func bloodPressureAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->LineChartView{
@@ -687,9 +1246,9 @@ public class DrawCharts{
     }
     
     
-    //************************************************************************************************************
+    //********************************************************************************************************
     
-    ///get home page view with (Double type Number, 25 elements)
+    ///get home page chart
     static public func homePageView1(frame: CGRect, data: [Double]) ->LineChartView{
         
         let dataLabels = [" 0:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",
@@ -806,9 +1365,10 @@ public class DrawCharts{
     }
     
     
-    //************************************************************************************************************
-    /// get blood Presure Monitor Chart with (3 group Double type number ,every gourp with 7 elements),
-    static public func bloodPressureMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->LineChartView{
+    //********************************************************************************************************
+    /// get blood Presure Monitor Chart
+    static public func bloodPressureMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView{
+        var myView = UIView(frame: frame)
         
         let colors = [UIColor(red: 61/255, green: 180/255, blue: 195/255, alpha: 1),
             UIColor(red: 243/255, green: 153/255, blue: 34/255, alpha: 1),
@@ -850,7 +1410,7 @@ public class DrawCharts{
             
         }
 
-        var chartView = LineChartView(frame: frame)
+        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "收缩压"))
@@ -925,7 +1485,7 @@ public class DrawCharts{
         //设置图像description
         chartView.descriptionText = ""
         chartView.legend.position = ChartLegend.ChartLegendPosition.BelowChartLeft
-        chartView.notifyDataSetChanged()
+        
         //background
         chartView.backgroundColor = colors[7]
 //        chartView.gridBackgroundColor = UIColor.whiteColor()
@@ -933,35 +1493,141 @@ public class DrawCharts{
         
         //动作
         chartView.setScaleEnabled(false)
+        
+        chartView.notifyDataSetChanged()
+        addBloodPressureMonitorBG(myView, contentFrame:chartView.contentRect)
+        myView.addSubview(chartView)
     
-        return chartView
+        return myView
         
     }
     
     
-    static public func bloodPressureMonitorBG(frame: CGRect) ->UIView {
-        var bgView = UIView(frame: frame)
+    
+    static private func addBloodPressureMonitorBG(targetView: UIView, contentFrame: CGRect) {
         
         //设置背景填充图层
-        let totalHight = frame.height - 58
+        let totalHight = contentFrame.height
         let layer1Hight = (220.0 - 140.0) / (220.0 - 40.0) * totalHight
         let layer2Hight = (140.0 - 90.0) / (220.0 - 40.0)  * totalHight
         let layer3Hight = (90.0 - 40.0) / (220.0 - 40.0) * totalHight
         
         var bgLayer1 = CALayer()
-        bgLayer1.frame = CGRect(x: 30, y: 10, width: frame.width - 40, height: layer1Hight)
+        bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width, height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
-        bgView.layer.addSublayer(bgLayer1)
+        targetView.layer.addSublayer(bgLayer1)
         var bgLayer2 = CALayer()
-        bgLayer2.frame = CGRect(x: 30, y: 10 + layer1Hight, width: frame.width - 40, height: layer2Hight)
+        bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
-        bgView.layer.addSublayer(bgLayer2)
+        targetView.layer.addSublayer(bgLayer2)
         var bgLayer3 = CALayer()
-        bgLayer3.frame = CGRect(x: 30, y: 10 + layer1Hight + layer2Hight, width: frame.width - 40, height: layer3Hight)
+        bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
-        bgView.layer.addSublayer(bgLayer3)
-        return bgView
+        targetView.layer.addSublayer(bgLayer3)
+ 
+
         
     }
     
+    static private func addBodyFatMonitorBG(targetView: UIView, contentFrame: CGRect) {
+        
+        //设置背景填充图层
+        let totalHight = contentFrame.height
+        let layer1Hight = (120.0 - 80.0) / (120.0 - 0.0) * totalHight
+        let layer2Hight = (80.0 - 40.0) / (120.0 - 0.0)  * totalHight
+        let layer3Hight = (40.0 - 0.0) / (120.0 - 0.0) * totalHight
+        
+        var bgLayer1 = CALayer()
+        bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width , height: layer1Hight)
+        bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
+        targetView.layer.addSublayer(bgLayer1)
+        var bgLayer2 = CALayer()
+        bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
+        bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
+        targetView.layer.addSublayer(bgLayer2)
+        var bgLayer3 = CALayer()
+        bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
+        bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
+        targetView.layer.addSublayer(bgLayer3)
+        
+    }
+    
+    
+    static private func addBloodSugerMonitorBG(targetView: UIView, contentFrame: CGRect){
+        let colors = [ UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1),
+            UIColor(red: 230/255, green: 230/255, blue: 220/255, alpha: 1),
+            UIColor(red: 230/255, green: 252/255, blue: 245/255, alpha: 1),
+            UIColor(red: 255/255, green: 245/255, blue: 233/255, alpha: 1)]
+            
+        
+        //设置背景填充图层
+        let totalHight = contentFrame.height
+        var layersHight: [CGFloat] = []
+        layersHight.append((15.0 - 7.8) / (15.0 - 3.0) * totalHight)
+        layersHight.append((7.8 - 6.1) / (15.0 - 3.0)  * totalHight)
+        layersHight.append((6.1 - 3.9) / (15.0 - 3.0) * totalHight)
+        layersHight.append ((3.9 - 3.0) / (15.0 - 3.0) * totalHight)
+        print(contentFrame)
+        print("\n total frame")
+        print(targetView.frame)
+        
+        
+        var yOffset: CGFloat = 0.0
+        for i in 0..<layersHight.count{
+            var bgLayer = CALayer()
+            
+            bgLayer.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + yOffset, width: contentFrame.width, height: layersHight[i])
+            bgLayer.backgroundColor = colors[i].CGColor
+            targetView.layer.addSublayer(bgLayer)
+            yOffset += layersHight[i]
+            
+        }
+        
+    }
+    
+    
+    static private func analysisChart3(#frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+        
+        var chartView = PieChartView(frame: frame)
+        let colors = [
+            UIColor(red: 255/255, green: 36/255, blue: 35/255, alpha: 1),
+            UIColor(red: 254/255, green: 140/255, blue: 0/255, alpha: 1),
+            UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 1)
+            ]
+        
+        var dataLabels: [String] = [" ", " ", " "]
+        
+        
+        var dataEntries :[ChartDataEntry] = []
+        var totalCount = normalCount + highCount + lowCount
+        
+        dataEntries.append(ChartDataEntry(value: Double(highCount)/Double(totalCount), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(normalCount)/Double(totalCount), xIndex: 2))
+        
+        
+        //数据设置
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries ,label: "")
+        let pieChartData = PieChartData(xVals: dataLabels, dataSet: pieChartDataSet)
+        pieChartDataSet.colors = colors
+        //设置扇形区域字体
+        pieChartDataSet.drawValuesEnabled = false
+        chartView.data = pieChartData
+        
+        //动画设置
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        //        中心区域文字设置
+        //        chartView.centerText = "\(values.count)\n 测量次数"
+        //        chartView.centerTextFont = UIFont.systemFontOfSize(14)
+        //中心区域比例
+        chartView.holeRadiusPercent = 0.8
+        //        //中心带边框比例
+        //        chartView.transparentCircleRadiusPercent = 0.3
+        chartView.descriptionText = ""
+        //        chartView.backgroundColor = UIColor.brownColor()
+        chartView.legend.enabled = false
+        chartView.userInteractionEnabled = false
+        
+        return chartView
+    }
 }

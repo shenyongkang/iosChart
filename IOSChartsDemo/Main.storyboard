@@ -385,6 +385,60 @@
                                             <segue destination="gJj-xR-tae" kind="show" id="gs1-GV-B96"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="VDO-Gt-ouf" style="IBUITableViewCellStyleDefault" id="jcQ-aL-RRU">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcQ-aL-RRU" id="TK3-Bc-e7B">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血脂监测" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VDO-Gt-ouf">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4aw-ON-K3X" kind="show" id="utZ-b6-4uU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Zbg-8F-eRw" style="IBUITableViewCellStyleDefault" id="s6V-Al-iql">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s6V-Al-iql" id="F5H-RC-2ps">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血脂数据分析－表格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zbg-8F-eRw">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="aDW-Op-cUj" kind="show" id="LQy-3Y-dfR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Lcu-4R-N8Y" style="IBUITableViewCellStyleDefault" id="GxF-lu-TMc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GxF-lu-TMc" id="3uL-Mj-A7U">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="血糖数据分析 － 曲线" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lcu-4R-N8Y">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fyr-d2-h2F" kind="show" id="1nA-cc-11j"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -398,6 +452,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEx-XE-dvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="252" y="481"/>
+        </scene>
+        <!--Body Fat Monitor View Controller-->
+        <scene sceneID="xbO-W2-FiU">
+            <objects>
+                <viewController id="4aw-ON-K3X" customClass="BodyFatMonitorViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jXf-hN-UTY"/>
+                        <viewControllerLayoutGuide type="bottom" id="BXM-dY-mWP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fyp-vr-Njv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26u-II-EWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="498" y="1284"/>
+        </scene>
+        <!--Body Fat Analysis Diagram View Controller-->
+        <scene sceneID="Qqs-Mp-Mnc">
+            <objects>
+                <viewController id="aDW-Op-cUj" customClass="BodyFatAnalysisDiagramViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xZ0-Wg-iLn"/>
+                        <viewControllerLayoutGuide type="bottom" id="DGa-7V-0uI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rCW-Wu-7eL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBc-1w-Vwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="490" y="1952"/>
+        </scene>
+        <!--Body Fat Analysis Curve View Controller-->
+        <scene sceneID="vf2-qz-ZOw">
+            <objects>
+                <viewController id="fyr-d2-h2F" customClass="BodyFatAnalysisCurveViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CF3-hI-fh3"/>
+                        <viewControllerLayoutGuide type="bottom" id="2SO-RD-9jt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5yV-s3-ZUV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIB-Jt-jxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="2619"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="66G-4H-V0R">
@@ -425,7 +533,7 @@
                         <viewControllerLayoutGuide type="top" id="mcP-vh-oZY"/>
                         <viewControllerLayoutGuide type="bottom" id="iv3-ym-rIP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rHv-FL-CPT" customClass="CombinedChartView" customModule="Charts">
+                    <view key="view" contentMode="scaleToFill" id="rHv-FL-CPT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVN-fz-Uxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117" y="1673"/>
+            <point key="canvasLocation" x="-553" y="1221"/>
         </scene>
         <!--Test Chart View Controller-->
         <scene sceneID="wce-yv-udD">
@@ -451,12 +559,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMr-N3-RFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-543" y="1673"/>
+            <point key="canvasLocation" x="1785" y="801"/>
         </scene>
-        <!--Blood Suger Analysis2 View Controller-->
+        <!--Blood Suger Analysis Curve View Controller-->
         <scene sceneID="4wL-Bh-HGi">
             <objects>
-                <viewController id="gJj-xR-tae" customClass="BloodSugerAnalysis2ViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gJj-xR-tae" customClass="BloodSugerAnalysisCurveViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z78-kG-VV2"/>
                         <viewControllerLayoutGuide type="bottom" id="Hbh-1b-5Sg"/>
@@ -469,12 +577,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cu-OY-g5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="1673"/>
+            <point key="canvasLocation" x="-497" y="2579"/>
         </scene>
-        <!--Blood Suger Analysis1 View Controller-->
+        <!--Blood Suger Analysis Diagram View Controller-->
         <scene sceneID="kNT-KH-oNA">
             <objects>
-                <viewController id="C65-pf-Hrl" customClass="BloodSugerAnalysis1ViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C65-pf-Hrl" customClass="BloodSugerAnalysisDiagramViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MFj-Dm-0kd"/>
                         <viewControllerLayoutGuide type="bottom" id="mFf-bC-nFc"/>
@@ -487,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oh-lj-zSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="1667"/>
+            <point key="canvasLocation" x="-474" y="1905"/>
         </scene>
     </scenes>
 </document>

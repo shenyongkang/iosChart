@@ -12,7 +12,8 @@ class BloodSugerMonitorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testBloodSugerAnalysisChart1()
+        testBloodSugerMonitorChart1()
+        testBloodSugerMonitorChart2()
 
         // Do any additional setup after loading the view.
     }
@@ -23,11 +24,22 @@ class BloodSugerMonitorViewController: UIViewController {
     }
     
 
-    func testBloodSugerAnalysisChart1(){
-        let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
-        var chartView = DrawCharts.bloodSugerAnalysisChart1(CGRect(x: 0, y: 64, width: view.frame.width * 4/5 , height: 150), normalCount: 3, highCount: 2, lowCount: 5)
+    func testBloodSugerMonitorChart1(){
+
+        var chartView = DrawCharts.bloodSugerMonitorChart1(CGRect(x: 0, y: 64, width: view.frame.width * 4/5 , height: 150), normalCount: 3, highCount: 2, lowCount: 5)
         
         view.addSubview(chartView)
+        
+    }
+    func testBloodSugerMonitorChart2() {
+        let unitsSold = [5.0, 3.5, 5.9, 12.0, 6.40, 8.8, 4.0]
+        let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
+        
+        
+        var chartView = DrawCharts.bloodSugerMonitorChart2(CGRect(x: 0, y: 364, width: view.frame.width , height: 200), data: unitsSold, labels: dataLabels)
+        
+        view.addSubview(chartView)
+        
         
     }
     

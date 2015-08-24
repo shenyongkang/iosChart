@@ -16,20 +16,20 @@ class TestChartViewController: UIViewController {
         
 //        testHomePageChart()        
 //        testHistoryChart()
-//        testBloodPressureChart()
+        testBloodPressureChart()
 //        testBloodPressureAnalysis()
 //        testBloodSugerAnalysis()
 //        testBodyFatAnalysis()
-        testBloodPressureAnalysisChart1()
-        testBloodPressureAnalysisChart2()
-        testBloodPressureAnalysisChart3()
+//        testBloodPressureAnalysisChart1()
+//        testBloodPressureAnalysisChart2()
+//        testBloodPressureAnalysisChart3()
 
     }
     
 
     func testBloodPressureAnalysisChart3(){
         let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
-        var chartView = DrawCharts.bloodPressureAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 2, lowCount: 5)
+        var chartView = DrawCharts.bloodPressureAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 5, lowCount: 2)
 
         view.addSubview(chartView)
         
@@ -84,8 +84,8 @@ class TestChartViewController: UIViewController {
         
         
         var chartView = DrawCharts.bloodPressureMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: unitsSold, labels: dataLabels)
-        var bgView = DrawCharts.bloodPressureMonitorBG(CGRect(x: 0, y: 364, width: view.frame.width , height: 250))
-        view.addSubview(bgView)
+//        var bgView = DrawCharts.bloodPressureMonitorBG(CGRect(x: 0, y: 364, width: view.frame.width , height: 250))
+//        view.addSubview(bgView)
         view.addSubview(chartView)
         
         
