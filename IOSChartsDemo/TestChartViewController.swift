@@ -14,9 +14,9 @@ class TestChartViewController: UIViewController {
         super.viewDidLoad()
         
         
-//        testHomePageChart()        
+        testHomePageChart()        
 //        testHistoryChart()
-        testBloodPressureChart()
+//        testBloodPressureChart()
 //        testBloodPressureAnalysis()
 //        testBloodSugerAnalysis()
 //        testBodyFatAnalysis()

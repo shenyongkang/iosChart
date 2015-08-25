@@ -1,18 +1,18 @@
 //
-//  BodyFatMonitorViewController.swift
+//  BloodPressureAnalysisCurveViewController.swift
 //  IOSChartsDemo
 //
-//  Created by 沈永康 on 15/8/24.
+//  Created by 沈永康 on 15/8/25.
 //  Copyright (c) 2015年 kankan. All rights reserved.
 //
 
 import UIKit
 
-class BodyFatMonitorViewController: UIViewController {
+class BloodPressureAnalysisCurveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testBodyFatMonitorChart()
+        testBloodPressureAnalysis()
 
         // Do any additional setup after loading the view.
     }
@@ -22,19 +22,15 @@ class BodyFatMonitorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func testBodyFatMonitorChart() {
-        let unitsSold = [[71.0, 74.0, 66.0, 83.0, 42.0, 76.0, 74.0], [41.0, 44.0, 36.0, 43.0, 42.0, 46.0, 44.0], [22.0, 24.0, 23.0, 23.0, 22.0, 24.0, 26.60]]
-        let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
-        
-        var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
-        
-        var chartView = DrawCharts.bodyFatMonitor(contentRect, data: unitsSold, labels: dataLabels)
+
+    func testBloodPressureAnalysis(){
+        let unitsSold = [[141.0, 134.0, 126.0, 133.0, 122.0, 136.0, 134.0], [81.0, 94.0, 116.0, 83.0, 112.0, 126.0, 84.0], [72.0, 64.0, 86.0, 73.0, 92.0, 76, 60]]
+        let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
+        var chartView = DrawCharts.bloodPressureAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
         view.addSubview(chartView)
-   
+        
         
     }
-
     /*
     // MARK: - Navigation
 

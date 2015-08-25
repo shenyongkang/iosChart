@@ -30,6 +30,15 @@
 		4BB9AA6D1B8AB43700A4D459 /* BodyFatMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */; };
 		4BB9AA6F1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */; };
 		4BB9AA711B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */; };
+		4BB9AA731B8C000900A4D459 /* BodyWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA721B8C000900A4D459 /* BodyWeightViewController.swift */; };
+		4BB9AA761B8C0E7600A4D459 /* BodyHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA751B8C0E7600A4D459 /* BodyHeightViewController.swift */; };
+		4BB9AA781B8C153800A4D459 /* BodyHeightAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA771B8C153800A4D459 /* BodyHeightAnalysisViewController.swift */; };
+		4BB9AA7A1B8C3C3D00A4D459 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA791B8C3C3D00A4D459 /* TemperatureViewController.swift */; };
+		4BB9AA7C1B8C3CA400A4D459 /* TemperatureAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA7B1B8C3CA400A4D459 /* TemperatureAnalysisViewController.swift */; };
+		4BB9AA7E1B8C67A900A4D459 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA7D1B8C67A900A4D459 /* HomePageViewController.swift */; };
+		4BB9AA801B8C67BB00A4D459 /* BloodPressureMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA7F1B8C67BB00A4D459 /* BloodPressureMonitorViewController.swift */; };
+		4BB9AA821B8C67E400A4D459 /* BloodPressureAnalysisDiagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA811B8C67E400A4D459 /* BloodPressureAnalysisDiagramViewController.swift */; };
+		4BB9AA841B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9AA831B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +106,15 @@
 		4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatMonitorViewController.swift; sourceTree = "<group>"; };
 		4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatAnalysisDiagramViewController.swift; sourceTree = "<group>"; };
 		4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFatAnalysisCurveViewController.swift; sourceTree = "<group>"; };
+		4BB9AA721B8C000900A4D459 /* BodyWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyWeightViewController.swift; sourceTree = "<group>"; };
+		4BB9AA751B8C0E7600A4D459 /* BodyHeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyHeightViewController.swift; sourceTree = "<group>"; };
+		4BB9AA771B8C153800A4D459 /* BodyHeightAnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyHeightAnalysisViewController.swift; sourceTree = "<group>"; };
+		4BB9AA791B8C3C3D00A4D459 /* TemperatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		4BB9AA7B1B8C3CA400A4D459 /* TemperatureAnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureAnalysisViewController.swift; sourceTree = "<group>"; };
+		4BB9AA7D1B8C67A900A4D459 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		4BB9AA7F1B8C67BB00A4D459 /* BloodPressureMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureMonitorViewController.swift; sourceTree = "<group>"; };
+		4BB9AA811B8C67E400A4D459 /* BloodPressureAnalysisDiagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureAnalysisDiagramViewController.swift; sourceTree = "<group>"; };
+		4BB9AA831B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureAnalysisCurveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +145,15 @@
 				4BB9AA6C1B8AB43700A4D459 /* BodyFatMonitorViewController.swift */,
 				4BB9AA6E1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift */,
 				4BB9AA701B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift */,
+				4BB9AA721B8C000900A4D459 /* BodyWeightViewController.swift */,
+				4BB9AA751B8C0E7600A4D459 /* BodyHeightViewController.swift */,
+				4BB9AA771B8C153800A4D459 /* BodyHeightAnalysisViewController.swift */,
+				4BB9AA791B8C3C3D00A4D459 /* TemperatureViewController.swift */,
+				4BB9AA7B1B8C3CA400A4D459 /* TemperatureAnalysisViewController.swift */,
+				4BB9AA7D1B8C67A900A4D459 /* HomePageViewController.swift */,
+				4BB9AA7F1B8C67BB00A4D459 /* BloodPressureMonitorViewController.swift */,
+				4BB9AA811B8C67E400A4D459 /* BloodPressureAnalysisDiagramViewController.swift */,
+				4BB9AA831B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift */,
 			);
 			name = testViewController;
 			sourceTree = "<group>";
@@ -325,22 +352,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB9AA7C1B8C3CA400A4D459 /* TemperatureAnalysisViewController.swift in Sources */,
+				4BB9AA801B8C67BB00A4D459 /* BloodPressureMonitorViewController.swift in Sources */,
 				4B9BF94A1B82C5EF0056C990 /* PieChartsViewController.swift in Sources */,
 				4B9BF9501B82C5EF0056C990 /* TestChartViewController.swift in Sources */,
 				4B2891EC1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift in Sources */,
+				4BB9AA761B8C0E7600A4D459 /* BodyHeightViewController.swift in Sources */,
 				4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */,
 				4BB9AA711B8AB6F300A4D459 /* BodyFatAnalysisCurveViewController.swift in Sources */,
 				4B9BF94F1B82C5EF0056C990 /* CombineViewController.swift in Sources */,
 				4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift in Sources */,
+				4BB9AA731B8C000900A4D459 /* BodyWeightViewController.swift in Sources */,
 				4B9BF9521B82C9710056C990 /* ProblemViewController.swift in Sources */,
+				4BB9AA821B8C67E400A4D459 /* BloodPressureAnalysisDiagramViewController.swift in Sources */,
 				4BB9AA6F1B8AB48800A4D459 /* BodyFatAnalysisDiagramViewController.swift in Sources */,
 				4B9BF94E1B82C5EF0056C990 /* CubicLineChartViewController.swift in Sources */,
 				4B9BF94B1B82C5EF0056C990 /* DrawCharts.swift in Sources */,
 				4BB9AA6D1B8AB43700A4D459 /* BodyFatMonitorViewController.swift in Sources */,
 				4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */,
+				4BB9AA781B8C153800A4D459 /* BodyHeightAnalysisViewController.swift in Sources */,
 				4B9BF93C1B82C2C80056C990 /* BarChartViewController.swift in Sources */,
+				4BB9AA7E1B8C67A900A4D459 /* HomePageViewController.swift in Sources */,
 				4B9BF94C1B82C5EF0056C990 /* LineChartViewController.swift in Sources */,
+				4BB9AA841B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift in Sources */,
 				4B9BF94D1B82C5EF0056C990 /* DrawChartsGuide.swift in Sources */,
+				4BB9AA7A1B8C3C3D00A4D459 /* TemperatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

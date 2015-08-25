@@ -1,18 +1,18 @@
 //
-//  BodyFatMonitorViewController.swift
+//  TemperatureViewController.swift
 //  IOSChartsDemo
 //
-//  Created by 沈永康 on 15/8/24.
+//  Created by 沈永康 on 15/8/25.
 //  Copyright (c) 2015年 kankan. All rights reserved.
 //
 
 import UIKit
 
-class BodyFatMonitorViewController: UIViewController {
+class TemperatureViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testBodyFatMonitorChart()
+        testTemperatureChart()
 
         // Do any additional setup after loading the view.
     }
@@ -23,15 +23,14 @@ class BodyFatMonitorViewController: UIViewController {
     }
     
     
-    func testBodyFatMonitorChart() {
-        let unitsSold = [[71.0, 74.0, 66.0, 83.0, 42.0, 76.0, 74.0], [41.0, 44.0, 36.0, 43.0, 42.0, 46.0, 44.0], [22.0, 24.0, 23.0, 23.0, 22.0, 24.0, 26.60]]
-        let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
+    func testTemperatureChart() {
+        let unitsSold = [37.0, 37.5, 36.8, 37.2, 36.20, 36.0, 37.4]
+        let xValues = [1,3,5,7,9,21,23]
         
         var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
         
-        var chartView = DrawCharts.bodyFatMonitor(contentRect, data: unitsSold, labels: dataLabels)
-        view.addSubview(chartView)
-   
+        var chartView = DrawCharts.temperature(contentRect, data: unitsSold, xValues: xValues)
+        view.addSubview(chartView)        
         
     }
 
