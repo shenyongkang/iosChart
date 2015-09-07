@@ -34,7 +34,7 @@ class BloodSugerAnalysisDiagramViewController: UIViewController {
     
     func testbloodSugerAnalysisChart2(){
         let unitsSold = [18.0, 15, 24, 20]
-        var chartView = DrawCharts.bloodSugerAnalysisChart2(CGRect(x: view.frame.width * 2/5, y: 164, width: view.frame.width * 3/5 , height: 120), data: unitsSold)
+        var chartView = DrawCharts.bloodSugerAnalysisChart2(CGRect(x: view.frame.width * 2/5, y: 164, width: view.frame.width * 2/5 , height: 120), data: unitsSold)
         view.addSubview(chartView)
         
     }

@@ -357,7 +357,9 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
                 
                 let add = CGFloat(4.0)
                 var xOffset: CGFloat = add
-                var yOffset: CGFloat = l.lineWidth + labelLineHeight / 2.0
+//                var yOffset: CGFloat = l.lineWidth + labelLineHeight / 2.0
+                var yOffset: CGFloat = l.lineWidth //+ labelLineHeight / 2.0
+
                 
                 if (l.labelPosition == .Right)
                 {

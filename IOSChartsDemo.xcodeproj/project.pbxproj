@@ -180,16 +180,9 @@
 		4B9BF90E1B82C1740056C990 /* IOSChartsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4BB9AA861B8D6B8D00A4D459 /* Demo */,
 				4B2891E61B86B762004FEA90 /* testViewController */,
-				4B9BF9511B82C9710056C990 /* ProblemViewController.swift */,
-				4B9BF9431B82C5EF0056C990 /* PieChartsViewController.swift */,
 				4B9BF9441B82C5EF0056C990 /* DrawCharts.swift */,
-				4B9BF9451B82C5EF0056C990 /* LineChartViewController.swift */,
-				4B9BF9461B82C5EF0056C990 /* DrawChartsGuide.swift */,
-				4B9BF9471B82C5EF0056C990 /* CubicLineChartViewController.swift */,
-				4B9BF9481B82C5EF0056C990 /* CombineViewController.swift */,
-				4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */,
-				4B9BF93B1B82C2C80056C990 /* BarChartViewController.swift */,
 				4B9BF9391B82C2B60056C990 /* Main.storyboard */,
 				4B9BF9111B82C1740056C990 /* AppDelegate.swift */,
 				4B9BF9181B82C1740056C990 /* Images.xcassets */,
@@ -231,6 +224,21 @@
 				4B9BF9361B82C24D0056C990 /* Charts.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4BB9AA861B8D6B8D00A4D459 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4B9BF9511B82C9710056C990 /* ProblemViewController.swift */,
+				4B9BF9431B82C5EF0056C990 /* PieChartsViewController.swift */,
+				4B9BF9451B82C5EF0056C990 /* LineChartViewController.swift */,
+				4B9BF9461B82C5EF0056C990 /* DrawChartsGuide.swift */,
+				4B9BF9471B82C5EF0056C990 /* CubicLineChartViewController.swift */,
+				4B9BF9481B82C5EF0056C990 /* CombineViewController.swift */,
+				4B9BF9491B82C5EF0056C990 /* TestChartViewController.swift */,
+				4B9BF93B1B82C2C80056C990 /* BarChartViewController.swift */,
+			);
+			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -591,19 +591,19 @@ public class DrawCharts{
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine185 = ChartLimitLine(limit: 18.5, label: "")
-        var targetLine249 = ChartLimitLine(limit: 24.9, label: "")
+        var targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        var targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
         targetLine185.lineDashLengths = [3.0, 3.0]
         targetLine185.lineColor = colors[3]
         targetLine185.lineWidth = 0.5
         targetLine185.valueTextColor = colors[6]
-        targetLine185.valueFont = UIFont.systemFontOfSize(10)
+        targetLine185.valueFont = UIFont.systemFontOfSize(9)
 
         targetLine249.lineDashLengths = [3.0, 3.0]
         targetLine249.lineColor = colors[4]
         targetLine249.lineWidth = 0.5
         targetLine249.valueTextColor = colors[4]
-        targetLine249.valueFont = UIFont.systemFontOfSize(10)
+        targetLine249.valueFont = UIFont.systemFontOfSize(9)
         
         chartView.leftAxis.addLimitLine(targetLine185)
         chartView.leftAxis.addLimitLine(targetLine249)
@@ -666,7 +666,7 @@ public class DrawCharts{
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
-            barChartDataSets[i].barSpace = 0.55
+            barChartDataSets[i].barSpace = 0.4
             barChartDataSets[i].valueFont = UIFont.boldSystemFontOfSize(12)
             var numberFormatter = NSNumberFormatter()
             numberFormatter.maximumFractionDigits = 1
@@ -677,7 +677,7 @@ public class DrawCharts{
             
         }
         var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
-        barChartData.groupSpace = 1.5
+        barChartData.groupSpace = 1.2
         chartView.data = barChartData
         
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -687,6 +687,7 @@ public class DrawCharts{
         chartView.xAxis.axisLineWidth = 1
         chartView.xAxis.axisLineColor = colors[2]
         chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
+        chartView.xAxis.setLabelsToSkip(0)
         
         chartView.xAxis.labelTextColor = colors[2]
         
@@ -741,7 +742,7 @@ public class DrawCharts{
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
-            barChartDataSets[i].barSpace = 0.55
+            barChartDataSets[i].barSpace = 0.4
             var numberFormatter = NSNumberFormatter()
             numberFormatter.maximumFractionDigits = 1
             barChartDataSets[i].valueFormatter = numberFormatter
@@ -751,7 +752,7 @@ public class DrawCharts{
             
         }
         var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
-        barChartData.groupSpace = 1.5
+        barChartData.groupSpace = 1.2
         chartView.data = barChartData
         //        chartView.xAxis.enabled = false
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -761,6 +762,7 @@ public class DrawCharts{
         chartView.xAxis.axisLineColor = colors[2]
         chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
         chartView.xAxis.labelTextColor = colors[2]
+        chartView.xAxis.setLabelsToSkip(0)
         
         chartView.xAxis.labelTextColor = UIColor.blackColor()
         chartView.extraBottomOffset = 10
@@ -902,18 +904,18 @@ public class DrawCharts{
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine185 = ChartLimitLine(limit: 18.5, label: "")
-        var targetLine249 = ChartLimitLine(limit: 24.9, label: "")
+        var targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        var targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
         targetLine185.lineDashLengths = [3.0, 3.0]
         targetLine185.lineColor = colors[3]
         targetLine185.lineWidth = 0.5
         targetLine185.valueTextColor = colors[6]
-        targetLine185.valueFont = UIFont.systemFontOfSize(12)
+        targetLine185.valueFont = UIFont.systemFontOfSize(8)
         targetLine249.lineDashLengths = [3.0, 3.0]
         targetLine249.lineColor = colors[4]
         targetLine249.lineWidth = 0.5
         targetLine249.valueTextColor = colors[4]
-        targetLine249.valueFont = UIFont.systemFontOfSize(12)
+        targetLine249.valueFont = UIFont.systemFontOfSize(8)
         
         chartView.leftAxis.addLimitLine(targetLine185)
         chartView.leftAxis.addLimitLine(targetLine249)
@@ -1161,7 +1163,7 @@ public class DrawCharts{
         chartView.xAxis.axisLineWidth = 1
         chartView.xAxis.axisLineColor = colors[4]
         chartView.xAxis.labelFont = UIFont.systemFontOfSize(14)
-        
+        chartView.xAxis.setLabelsToSkip(0)
         chartView.xAxis.labelTextColor = colors[4]
         chartView.extraBottomOffset = 10
         chartView.extraTopOffset = 15
