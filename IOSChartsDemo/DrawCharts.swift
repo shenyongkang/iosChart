@@ -15,6 +15,233 @@ import Charts
 public class DrawCharts{
     
     
+    
+    /// get sleep analysis one day chart
+    static public func sleepAnalysisOneDay(frame: CGRect,sleepDuration: [Double], sleepType: [String]) ->HorizontalBarChartView {
+        let colors = [UIColor(red: 11/255, green: 55/255, blue: 144/255, alpha: 1),
+            UIColor(red: 48/255, green: 120/255, blue: 254/255, alpha: 1),
+            UIColor(red: 123/255, green: 179/255, blue: 254/255, alpha: 1),
+            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            
+        ]
+        
+        if sleepDuration.count != sleepType.count {
+            var tempChart = HorizontalBarChartView(frame: frame)
+            tempChart.noDataText = "wrong data"
+            return tempChart
+        }
+        var values: [[Double]] = [[Double]](count: 4, repeatedValue: [])
+        var dataLabels: [String] = [String](count: 4, repeatedValue: "")
+        var colorsList: [UIColor] = []
+        for i in 0..<sleepDuration.count {
+            if sleepType[i] == "S"{
+                values[0].append(sleepDuration[i])
+                values[1].append(sleepDuration[i])
+                values[2].append(0)
+                values[3].append(0)
+                
+                values[0].append(0)
+                values[1].append(0)
+                values[2].append(sleepDuration[i])
+                values[3].append(sleepDuration[i])
+
+                colorsList.append(colors[1])
+                colorsList.append(colors[4])
+            }
+            if sleepType[i] == "D"{
+                values[0].append(sleepDuration[i])
+                values[1].append(sleepDuration[i])
+                values[2].append(sleepDuration[i])
+                values[3].append(0)
+                
+                values[0].append(0)
+                values[1].append(0)
+                values[2].append(0)
+                values[3].append(sleepDuration[i])
+
+                colorsList.append(colors[0])
+                colorsList.append(colors[4])
+            }
+            if sleepType[i] == "A"{
+                values[0].append(sleepDuration[i])
+                values[1].append(0)
+                values[2].append(0)
+                values[3].append(0)
+                values[0].append(0)
+                values[1].append(sleepDuration[i])
+                values[2].append(sleepDuration[i])
+                values[3].append(sleepDuration[i])
+
+                colorsList.append(colors[2])
+                colorsList.append(colors[4])
+            }
+            if sleepType[i] == "N"{
+                values[0].append(0)
+                values[1].append(0)
+                values[2].append(0)
+                values[3].append(0)
+                
+                values[0].append(sleepDuration[i])
+                values[1].append(sleepDuration[i])
+                values[2].append(sleepDuration[i])
+                values[3].append(sleepDuration[i])
+
+                colorsList.append(colors[4])
+                colorsList.append(colors[4])
+            }
+            
+            
+            
+        }
+        var chartView = HorizontalBarChartView(frame: frame)
+        
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = BarChartDataEntry(values: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+            
+        }
+        
+        print(dataEntries)
+        
+        var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        barChartDataSet.barSpace = 0.0
+        
+        barChartDataSet.colors = colorsList
+        barChartDataSet.drawValuesEnabled = false
+        
+        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.descriptionText = ""
+        
+        chartView.leftAxis.enabled = true
+        chartView.leftAxis.drawLabelsEnabled = false
+        chartView.leftAxis.drawGridLinesEnabled = true
+        chartView.leftAxis.gridColor = colors[3]
+        chartView.leftAxis.gridLineDashLengths = [3.0, 3.0]
+        
+        chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineColor = colors[3]
+        chartView.leftAxis.axisLineWidth = 0.5
+        
+        
+        chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.gridColor = colors[3]
+        chartView.xAxis.axisLineColor = colors[3]
+        chartView.xAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.axisLineWidth = 0.5
+        
+        chartView.rightAxis.enabled = true
+        chartView.rightAxis.drawLabelsEnabled = true
+        chartView.rightAxis.drawGridLinesEnabled = false
+        
+        chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineColor = colors[3]
+        chartView.rightAxis.axisLineWidth = 0.5
+        
+        
+        
+        chartView.backgroundColor = colors[4]
+        chartView.gridBackgroundColor = colors[4]
+        chartView.legend.enabled = false
+        
+        chartView.notifyDataSetChanged()
+        chartView.setScaleEnabled(false)
+        
+        
+        
+        
+        
+        return chartView
+        
+        
+    }
+    
+    /// get sleep analysis one week chart
+    static public func sleepAnalysisOneWeek(frame: CGRect, data: [[Double]], labels: [String]) ->BarChartView {
+        
+        
+        let colors = [UIColor(red: 11/255, green: 55/255, blue: 144/255, alpha: 1),
+            UIColor(red: 48/255, green: 120/255, blue: 254/255, alpha: 1),
+            UIColor(red: 123/255, green: 179/255, blue: 254/255, alpha: 1),
+            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            
+        ]
+        
+        if labels.count != data.count || labels.count == 0 {
+            var tempChart = BarChartView(frame: frame)
+            tempChart.noDataText = "Chart数据错误"
+        }
+//        var values: [[Double]] = 
+        
+        var dataLabels: [String] = labels
+        let values = data
+        
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = BarChartDataEntry(values: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+
+        }
+        
+//        print(dataEntries)
+        
+        var chartView = BarChartView(frame: frame)
+        var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        barChartDataSet.stackLabels = ["浅睡眠", "深睡眠", "活动"]
+        barChartDataSet.barSpace = 0.02
+            
+        barChartDataSet.colors = [] + colors[0..<3]
+        barChartDataSet.drawValuesEnabled = false
+            
+        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        chartView.data = barChartData
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.descriptionText = ""
+        
+        chartView.leftAxis.enabled = true
+        chartView.leftAxis.drawLabelsEnabled = false
+        chartView.leftAxis.gridColor = colors[3]
+        chartView.leftAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineColor = colors[3]
+        chartView.leftAxis.axisLineWidth = 0.5
+        
+        chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.gridColor = colors[3]
+        
+        chartView.rightAxis.enabled = true
+        chartView.rightAxis.drawLabelsEnabled = false
+        chartView.rightAxis.gridColor = colors[3]
+        chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineColor = colors[3]
+        chartView.rightAxis.axisLineWidth = 0.5
+        
+        
+        
+        chartView.backgroundColor = colors[4]
+        chartView.gridBackgroundColor = colors[4]
+        chartView.legend.enabled = false
+        
+        chartView.notifyDataSetChanged()
+        chartView.setScaleEnabled(false)
+
+        return chartView
+        
+
+    
+        
+    }
+    
+    
     ///get temperature chart
     static public func  temperatureAnalysis(frame: CGRect, data: [Double], labels: [String]) ->UIView {
         var myView = UIView(frame: frame)

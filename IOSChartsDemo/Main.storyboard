@@ -85,6 +85,42 @@
             </objects>
             <point key="canvasLocation" x="809" y="-2736"/>
         </scene>
+        <!--Sleep Analysis One Day View Controller-->
+        <scene sceneID="5OH-Kd-xCW">
+            <objects>
+                <viewController id="d54-tp-LmC" customClass="SleepAnalysisOneDayViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="evU-3j-qfz"/>
+                        <viewControllerLayoutGuide type="bottom" id="bB4-HL-MpX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yt9-jR-SPl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ze-5Q-KeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="-2482"/>
+        </scene>
+        <!--Sleep Analysis One Week View Controller-->
+        <scene sceneID="iwf-0b-VXL">
+            <objects>
+                <viewController id="mVd-10-ZTJ" customClass="SleepAnalysisOneWeekViewController" customModule="IOSChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8c-Wx-YEk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Elw-5P-sMt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eB1-Ka-tgK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqZ-ty-dMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4187" y="-1949"/>
+        </scene>
         <!--Line Chart View Controller-->
         <scene sceneID="qog-Ja-6Sj">
             <objects>
@@ -307,6 +343,42 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="nuA-qc-gJo" kind="show" id="EM0-RI-VVK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="22P-Gm-FYi" style="IBUITableViewCellStyleDefault" id="7EC-Mg-fXr">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7EC-Mg-fXr" id="EZj-PQ-4aU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="睡眠分析 - 每天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="22P-Gm-FYi">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="d54-tp-LmC" kind="show" id="kju-hH-Cgo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Md0-eL-IYD" style="IBUITableViewCellStyleDefault" id="yZZ-tX-GEF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yZZ-tX-GEF" id="aym-S5-JO9">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="睡眠分析 - 每周月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Md0-eL-IYD">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="mVd-10-ZTJ" kind="show" id="G8T-Uo-wEI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fHp-Zf-JSL" style="IBUITableViewCellStyleDefault" id="DAl-dn-inL">

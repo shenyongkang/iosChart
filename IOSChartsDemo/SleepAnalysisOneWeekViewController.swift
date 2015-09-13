@@ -12,6 +12,8 @@ class SleepAnalysisOneWeekViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.brownColor()
+        testSleepAnalysisOneWeek()
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +23,14 @@ class SleepAnalysisOneWeekViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func testSleepAnalysisOneWeek(){
+        let unitsSold = [[10.0, 20, 30], [11.0, 22], [12.0, 21, 23], [17.0, 22,11], [11.0, 23, 11] ]
+        let myLabels = ["周一", "周二","周三", "周四", "周五"]
+        var chartView = DrawCharts.sleepAnalysisOneWeek(CGRect(x: 0, y: 164, width: view.frame.width , height: 300), data: unitsSold, labels: myLabels)
+        view.addSubview(chartView)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
