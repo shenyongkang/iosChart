@@ -1975,7 +1975,6 @@ public class DrawCharts{
     }
    
 
-
     //********************************************************************************************************
     
     ///get blood pressure analysis curve page charts

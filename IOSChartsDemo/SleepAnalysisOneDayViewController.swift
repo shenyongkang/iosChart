@@ -12,7 +12,8 @@ class SleepAnalysisOneDayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.grayColor()
+    
+        view.backgroundColor = UIColor(red: 120/255, green: 195/255, blue: 200/255, alpha: 1)
         testSleepAnalysisOneDay()
 
         // Do any additional setup after loading the view.
