@@ -22,6 +22,7 @@ public class DrawCharts{
             UIColor(red: 48/255, green: 120/255, blue: 254/255, alpha: 1),
             UIColor(red: 123/255, green: 179/255, blue: 254/255, alpha: 1),
             UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0),
             UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             
         ]
@@ -35,43 +36,45 @@ public class DrawCharts{
         var dataLabels: [String] = [String](count: 4, repeatedValue: "")
         var colorsList: [UIColor] = []
         for i in 0..<sleepDuration.count {
+            var duration = sleepDuration[i] / 60.0
+
             if sleepType[i] == "S"{
-                values[0].append(sleepDuration[i])
-                values[1].append(sleepDuration[i])
+                values[0].append(duration)
+                values[1].append(duration)
                 values[2].append(0)
                 values[3].append(0)
                 
                 values[0].append(0)
                 values[1].append(0)
-                values[2].append(sleepDuration[i])
-                values[3].append(sleepDuration[i])
+                values[2].append(duration)
+                values[3].append(duration)
 
                 colorsList.append(colors[1])
                 colorsList.append(colors[4])
             }
             if sleepType[i] == "D"{
-                values[0].append(sleepDuration[i])
-                values[1].append(sleepDuration[i])
-                values[2].append(sleepDuration[i])
+                values[0].append(duration)
+                values[1].append(duration)
+                values[2].append(duration)
                 values[3].append(0)
                 
                 values[0].append(0)
                 values[1].append(0)
                 values[2].append(0)
-                values[3].append(sleepDuration[i])
+                values[3].append(duration)
 
                 colorsList.append(colors[0])
                 colorsList.append(colors[4])
             }
             if sleepType[i] == "A"{
-                values[0].append(sleepDuration[i])
+                values[0].append(duration)
                 values[1].append(0)
                 values[2].append(0)
                 values[3].append(0)
                 values[0].append(0)
-                values[1].append(sleepDuration[i])
-                values[2].append(sleepDuration[i])
-                values[3].append(sleepDuration[i])
+                values[1].append(duration)
+                values[2].append(duration)
+                values[3].append(duration)
 
                 colorsList.append(colors[2])
                 colorsList.append(colors[4])
@@ -82,16 +85,14 @@ public class DrawCharts{
                 values[2].append(0)
                 values[3].append(0)
                 
-                values[0].append(sleepDuration[i])
-                values[1].append(sleepDuration[i])
-                values[2].append(sleepDuration[i])
-                values[3].append(sleepDuration[i])
+                values[0].append(duration)
+                values[1].append(duration)
+                values[2].append(duration)
+                values[3].append(duration)
 
                 colorsList.append(colors[4])
                 colorsList.append(colors[4])
             }
-            
-            
             
         }
         var chartView = HorizontalBarChartView(frame: frame)
@@ -103,10 +104,10 @@ public class DrawCharts{
             
         }
         
-        print(dataEntries)
+//        print(dataEntries)
         
         var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
-        barChartDataSet.barSpace = 0.0
+        barChartDataSet.barSpace = -0.01
         
         barChartDataSet.colors = colorsList
         barChartDataSet.drawValuesEnabled = false
@@ -114,16 +115,21 @@ public class DrawCharts{
         var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
         chartView.data = barChartData
         
+        
+        var numberFormatter = NSNumberFormatter()
+
+        
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartView.xAxis.labelPosition = .Bottom
         chartView.descriptionText = ""
         
         chartView.leftAxis.enabled = true
         chartView.leftAxis.drawLabelsEnabled = false
-        chartView.leftAxis.drawGridLinesEnabled = true
-        chartView.leftAxis.gridColor = colors[3]
-        chartView.leftAxis.gridLineDashLengths = [3.0, 3.0]
-        
+        chartView.leftAxis.startAtZeroEnabled = false
+        chartView.leftAxis.customAxisMin = 0.0
+        chartView.leftAxis.customAxisMax = 24.0
+
+        chartView.leftAxis.drawGridLinesEnabled = false
         chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.leftAxis.axisLineColor = colors[3]
         chartView.leftAxis.axisLineWidth = 0.5
@@ -137,7 +143,21 @@ public class DrawCharts{
         
         chartView.rightAxis.enabled = true
         chartView.rightAxis.drawLabelsEnabled = true
-        chartView.rightAxis.drawGridLinesEnabled = false
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.positiveSuffix = ":00"
+        chartView.rightAxis.valueFormatter = numberFormatter
+        chartView.extraRightOffset = 15
+        chartView.rightAxis.drawGridLinesEnabled = true
+        chartView.rightAxis.startAtZeroEnabled = false
+        chartView.rightAxis.customAxisMin = 0.0
+        chartView.rightAxis.customAxisMax = 24.0
+        chartView.rightAxis.setLabelCount(7, force: true)
+        chartView.rightAxis.gridColor = colors[3]
+        chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
+        
+        
+        
         
         chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineColor = colors[3]
@@ -145,16 +165,12 @@ public class DrawCharts{
         
         
         
-        chartView.backgroundColor = colors[4]
-        chartView.gridBackgroundColor = colors[4]
+        chartView.backgroundColor = colors[5]
+        chartView.gridBackgroundColor = colors[5]
         chartView.legend.enabled = false
         
         chartView.notifyDataSetChanged()
         chartView.setScaleEnabled(false)
-        
-        
-        
-        
         
         return chartView
         
@@ -194,7 +210,7 @@ public class DrawCharts{
         var chartView = BarChartView(frame: frame)
         var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
         barChartDataSet.stackLabels = ["浅睡眠", "深睡眠", "活动"]
-        barChartDataSet.barSpace = 0.02
+        barChartDataSet.barSpace = 0.1
             
         barChartDataSet.colors = [] + colors[0..<3]
         barChartDataSet.drawValuesEnabled = false

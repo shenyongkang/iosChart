@@ -51,7 +51,7 @@ class BarChartViewController: UIViewController, ChartViewDelegate{
         chartDataSet.drawValuesEnabled = true
         // space indicator between the bars in percentage of the whole width of one value (0.15 == 15% of bar width)
 
-        chartDataSet.barSpace = 0
+        chartDataSet.barSpace = 0.15
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         barChartView.data = chartData
         chartDataSet.colors = colors

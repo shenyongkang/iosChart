@@ -12,6 +12,7 @@ class SleepAnalysisOneDayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.grayColor()
         testSleepAnalysisOneDay()
 
         // Do any additional setup after loading the view.
@@ -23,7 +24,7 @@ class SleepAnalysisOneDayViewController: UIViewController {
     }
     
     func testSleepAnalysisOneDay(){
-        var duration = [100.0,10.0, 20, 50, 100, 50]
+        var duration = [100.0,140.0, 200, 500, 100, 400]
         var type = ["N", "A", "D", "S", "D", "A"]
         var rect = CGRect(x: 0, y: 164, width: view.frame.width , height: 300)
         var myView = DrawCharts.sleepAnalysisOneDay(rect, sleepDuration: duration, sleepType: type)
