@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1729D1E8-6F12-4B2E-B370-32FEEFE46E80</string>
 	<key>IDESourceControlProjectName</key>
-	<string>IOSChartsDemo</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CA32D64ACB09FF40F851F79DA605A2183C7F4346</key>
 		<string>https://github.com/shenyongkang/iosChart.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>IOSChartsDemo.xcodeproj</string>
+	<string>IOSChartsDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CA32D64ACB09FF40F851F79DA605A2183C7F4346</key>

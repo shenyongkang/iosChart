@@ -29,7 +29,7 @@ public class DrawCharts{
         
         if sleepDuration.count != sleepType.count {
             var tempChart = HorizontalBarChartView(frame: frame)
-            tempChart.noDataText = "wrong data"
+            tempChart.noDataText = "Chart数据错误"
             return tempChart
         }
         var values: [[Double]] = [[Double]](count: 4, repeatedValue: [])
