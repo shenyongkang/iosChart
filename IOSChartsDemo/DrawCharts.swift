@@ -271,6 +271,7 @@ public class DrawCharts{
         chartView.rightAxis.customAxisMin = 0.0
         chartView.rightAxis.customAxisMax = 24.0
         chartView.rightAxis.setLabelCount(7, force: true)
+        
         chartView.rightAxis.gridColor = colors[3]
         chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
         
@@ -351,7 +352,7 @@ public class DrawCharts{
         chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.leftAxis.axisLineColor = colors[3]
         chartView.leftAxis.axisLineWidth = 0.5
-        chartView.leftAxis.setLabelCount(8, force: true)
+        chartView.leftAxis.setLabelCount(6, force: true)
         
         chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.xAxis.gridColor = colors[3]
@@ -360,7 +361,7 @@ public class DrawCharts{
         chartView.rightAxis.enabled = true
         chartView.rightAxis.drawLabelsEnabled = false
         chartView.rightAxis.gridColor = colors[3]
-        chartView.rightAxis.setLabelCount(8, force: true)
+        chartView.rightAxis.setLabelCount(6, force: true)
         chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineColor = colors[3]
