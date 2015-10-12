@@ -27,9 +27,9 @@ class BodyFatMonitorViewController: UIViewController {
         let unitsSold = [[71.0, 74.0, 66.0, 83.0, 42.0, 76.0, 74.0], [41.0, 44.0, 36.0, 43.0, 42.0, 46.0, 44.0], [22.0, 24.0, 23.0, 23.0, 22.0, 24.0, 26.60]]
         let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
         
-        var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
+        let contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
         
-        var chartView = DrawCharts.bodyFatMonitor(contentRect, data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bodyFatMonitor(contentRect, data: unitsSold, labels: dataLabels)
         view.addSubview(chartView)
    
         

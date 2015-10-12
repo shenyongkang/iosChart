@@ -57,7 +57,7 @@ class PieChartsViewController: UIViewController {
         pieChartView.transparentCircleRadiusPercent = 0.5
         //百分比显示,注：usePercentValuesEnabled 返回的是不带百分号的百分比
         pieChartView.usePercentValuesEnabled = true
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.maximumFractionDigits = 1
         numberFormatter.positiveSuffix = "%"
@@ -68,7 +68,7 @@ class PieChartsViewController: UIViewController {
         //图示说明
         pieChartView.legend.enabled = true
         pieChartView.legend.position = ChartLegend.ChartLegendPosition.RightOfChartCenter
-        var labels = ["a","b","c","d","e","f"]
+        _ = ["a","b","c","d","e","f"]
         pieChartView.legend.setCustom(colors: colors, labels: Array(dataPoints[0..<6]))
         pieChartView.legend.formSize = 10
         pieChartView.legend.textColor = colors[2]

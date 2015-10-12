@@ -27,9 +27,9 @@ class TemperatureAnalysisViewController: UIViewController {
         let unitsSold = [37.0, 37.5, 36.8, 37.2, 36.20, 36.0, 37.4]
         let labels = ["1", "3", "5", "7", "9", "21", "23"]
         
-        var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
+        let contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
         
-        var chartView = DrawCharts.temperatureAnalysis(contentRect, data: unitsSold, labels: labels)
+        let chartView = DrawCharts.temperatureAnalysis(contentRect, data: unitsSold, labels: labels)
         view.addSubview(chartView)
         
     }

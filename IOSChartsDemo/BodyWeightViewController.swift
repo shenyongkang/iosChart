@@ -26,9 +26,9 @@ class BodyWeightViewController: UIViewController {
         let unitsSold = [[71.0, 74.0, 66.0, 83.0, 42.0, 76.0, 74.0], [22.0, 24.0, 23.0, 23.0, 22.0, 24.0, 22.60]]
         let dataLabels = ["6" , "7","8", "9",  "10", "11", "12"]
     
-        var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
+        let contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
     
-        var chartView = DrawCharts.bodyWeight(contentRect, data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bodyWeight(contentRect, data: unitsSold, labels: dataLabels)
         view.addSubview(chartView)
     }
 

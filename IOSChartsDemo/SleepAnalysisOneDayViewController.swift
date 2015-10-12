@@ -25,10 +25,10 @@ class SleepAnalysisOneDayViewController: UIViewController {
     }
     
     func testSleepAnalysisOneDay(){
-        var duration = [100.0,140.0, 200, 500, 100, 400]
-        var type = ["N", "A", "D", "S", "D", "A"]
-        var rect = CGRect(x: 0, y: 164, width: view.frame.width , height: 300)
-        var myView = DrawCharts.sleepAnalysisOneDay(rect, sleepDuration: duration, sleepType: type)
+        let duration = [100.0,140.0, 200, 500, 100, 400]
+        let type = ["N", "A", "D", "S", "D", "A"]
+        let rect = CGRect(x: 0, y: 164, width: view.frame.width , height: 300)
+        let myView = DrawCharts.sleepAnalysisOneDay(rect, sleepDuration: duration, sleepType: type)
         view.addSubview(myView)
         
     }

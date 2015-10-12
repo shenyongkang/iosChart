@@ -31,9 +31,9 @@ class CubicLineChartViewController: UIViewController {
     
     func setImage()
     {
-        var image = UIImage(named: "background2")
+        let image = UIImage(named: "background2")
 
-        var backgroundImage = UIImageView(image: image)
+        let backgroundImage = UIImageView(image: image)
         backgroundImage.contentMode = UIViewContentMode.ScaleToFill
         
         backgroundImage.alpha = 0.5
@@ -122,7 +122,7 @@ class CubicLineChartViewController: UIViewController {
         
         
         //设置data
-        var lineChartDataSet = [lineChartDataSet1, lineChartDataSet2]
+        let lineChartDataSet = [lineChartDataSet1, lineChartDataSet2]
         let lineChartData = LineChartData(xVals: dataPoints, dataSets: lineChartDataSet)
         cubicLineChartView.data = lineChartData
         
@@ -155,7 +155,7 @@ class CubicLineChartViewController: UIViewController {
         cubicLineChartView.descriptionText = ""
         cubicLineChartView.legend.enabled = false
         //target line
-        var limitLine = ChartLimitLine(limit: 16.0, label: "Target")
+        let limitLine = ChartLimitLine(limit: 16.0, label: "Target")
         limitLine.lineColor = UIColor(red: 220/255, green: 37/255, blue: 167/255, alpha: 0.5)
         cubicLineChartView.rightAxis.addLimitLine(limitLine)
         

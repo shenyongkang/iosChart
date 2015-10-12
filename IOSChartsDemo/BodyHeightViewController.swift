@@ -27,9 +27,9 @@ class BodyHeightViewController: UIViewController {
         let unitsSold = [41.0, 44.0, 46.0, 53.0, 62.0, 66.0, 74.0]
         let dataLabels = ["1月" , "2月", "三月", "四月",  "五月", "六月", "七月"]
         
-        var contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
+        let contentRect = CGRect(x: 0, y: 364, width: view.frame.width , height: 200)
         
-        var chartView = DrawCharts.bodyHeight(contentRect, data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bodyHeight(contentRect, data: unitsSold, labels: dataLabels)
         view.addSubview(chartView)
         
         

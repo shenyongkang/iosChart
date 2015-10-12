@@ -26,8 +26,8 @@ class BloodPressureAnalysisDiagramViewController: UIViewController {
     
     
     func testBloodPressureAnalysisChart3(){
-        let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
-        var chartView = DrawCharts.bloodPressureAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 5, lowCount: 2)
+        _ = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
+        let chartView = DrawCharts.bloodPressureAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 5, lowCount: 2)
         
         view.addSubview(chartView)
         
@@ -35,14 +35,14 @@ class BloodPressureAnalysisDiagramViewController: UIViewController {
     
     func testBloodPressureAnalysisChart2(){
         let unitsSold = [[150.0, 130, 90], [120.0, 140, 88], [123.0, 150, 80]]
-        var chartView = DrawCharts.bloodPressureAnalysisChart2(CGRect(x: view.frame.width * 2/5 , y: 164, width: view.frame.width * 3/5 , height: 100), data: unitsSold)
+        let chartView = DrawCharts.bloodPressureAnalysisChart2(CGRect(x: view.frame.width * 2/5 , y: 164, width: view.frame.width * 3/5 , height: 100), data: unitsSold)
         view.addSubview(chartView)
         
     }
     
     func testBloodPressureAnalysisChart1(){
         let unitsSold = [[150.0, 130, 90], [120.0, 140, 88]]
-        var chartView = DrawCharts.bloodPressureAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 100), data: unitsSold)
+        let chartView = DrawCharts.bloodPressureAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 100), data: unitsSold)
         view.addSubview(chartView)
         
     }

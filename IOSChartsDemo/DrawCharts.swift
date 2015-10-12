@@ -14,7 +14,125 @@ import Charts
 
 public class DrawCharts{
     
-    
+    ///get pedometer monitor chart
+    static public func pedometerMonitor(frame: CGRect, data: [Int], labels: [String]) ->UIView{
+        
+        let myView = UIView(frame: frame)
+        let colors = [
+            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1),
+            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5),
+            UIColor(red: 244/255, green: 170/255, blue: 103/255, alpha: 1),
+            UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1),
+            UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
+        
+        
+        
+        let values = data
+        var dataLabels: [String] = []
+        for item in labels{
+            
+            dataLabels.append(item)
+            dataLabels.append("")
+        }
+        dataLabels.removeLast()
+        
+        var xValues: [Int] = []
+        for i in 0..<values.count{
+            xValues.append(2 * i)
+        }
+        
+        
+        
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = ChartDataEntry(value: Double(values[i]), xIndex: xValues[i])
+            dataEntries.append(dataEntry)
+            
+        }
+        
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "步数")
+        
+        
+        
+        lineChartDataSet.colors = [colors[0]]
+        lineChartDataSet.drawCircleHoleEnabled = false
+        lineChartDataSet.circleColors = [colors[0]]
+        lineChartDataSet.circleRadius = 3
+        lineChartDataSet.drawValuesEnabled = false
+        lineChartDataSet.lineWidth = 1
+        
+        //设置data
+        
+        let lineChartData = LineChartData(xVals: dataLabels, dataSet: lineChartDataSet)
+        chartView.data = lineChartData
+        
+        //设置动画
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .Linear)
+        
+        //设置X Y 轴及网格参数
+        
+        chartView.descriptionText = ""
+        
+        chartView.leftAxis.enabled = true
+        chartView.leftAxis.drawLabelsEnabled = true
+        chartView.leftAxis.labelTextColor = colors[1]
+        chartView.leftAxis.drawGridLinesEnabled = false
+
+        
+        
+        chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineColor = colors[1]
+        chartView.leftAxis.axisLineWidth = 0.5
+        
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.labelTextColor = colors[1]
+        chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.gridColor = colors[1]
+        chartView.xAxis.axisLineColor = colors[1]
+        chartView.xAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.axisLineWidth = 0.5
+        
+        chartView.rightAxis.enabled = true
+        chartView.rightAxis.drawLabelsEnabled = false
+//        chartView.extraRightOffset = 15
+        chartView.rightAxis.drawGridLinesEnabled = true
+
+        chartView.rightAxis.setLabelCount(8, force: true)
+        chartView.rightAxis.gridColor = colors[1]
+        chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
+        
+        
+        
+        
+        chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineColor = colors[1]
+        chartView.rightAxis.axisLineWidth = 0.5
+
+        
+        
+        chartView.legend.enabled = false
+        //设置图像description
+        chartView.descriptionText = ""
+        chartView.legend.position = ChartLegend.ChartLegendPosition.BelowChartLeft
+        
+        //background
+        chartView.backgroundColor = colors[4]
+        //        chartView.gridBackgroundColor = UIColor.brownColor()
+        chartView.gridBackgroundColor = colors[4]
+        
+        //动作
+        chartView.setScaleEnabled(false)
+        
+        chartView.notifyDataSetChanged()
+        //添加背景
+
+        myView.addSubview(chartView)
+        
+        return myView
+        
+    }
     
     /// get sleep analysis one day chart
     static public func sleepAnalysisOneDay(frame: CGRect,sleepDuration: [Double], sleepType: [String]) ->HorizontalBarChartView {
@@ -28,15 +146,15 @@ public class DrawCharts{
         ]
         
         if sleepDuration.count != sleepType.count {
-            var tempChart = HorizontalBarChartView(frame: frame)
+            let tempChart = HorizontalBarChartView(frame: frame)
             tempChart.noDataText = "Chart数据错误"
             return tempChart
         }
         var values: [[Double]] = [[Double]](count: 4, repeatedValue: [])
-        var dataLabels: [String] = [String](count: 4, repeatedValue: "")
+        let dataLabels: [String] = [String](count: 4, repeatedValue: "")
         var colorsList: [UIColor] = []
         for i in 0..<sleepDuration.count {
-            var duration = sleepDuration[i] / 60.0
+            let duration = sleepDuration[i] / 60.0
 
             if sleepType[i] == "S"{
                 values[0].append(duration)
@@ -95,7 +213,7 @@ public class DrawCharts{
             }
             
         }
-        var chartView = HorizontalBarChartView(frame: frame)
+        let chartView = HorizontalBarChartView(frame: frame)
         
         var dataEntries: [BarChartDataEntry] = []
         for i in 0..<values.count{
@@ -106,17 +224,17 @@ public class DrawCharts{
         
 //        print(dataEntries)
         
-        var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        let barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
         barChartDataSet.barSpace = -0.01
         
         barChartDataSet.colors = colorsList
         barChartDataSet.drawValuesEnabled = false
         
-        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        let barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
         chartView.data = barChartData
         
         
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
 
         
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -171,6 +289,9 @@ public class DrawCharts{
         
         chartView.notifyDataSetChanged()
         chartView.setScaleEnabled(false)
+        chartView.userInteractionEnabled = false
+        
+
         
         return chartView
         
@@ -190,12 +311,13 @@ public class DrawCharts{
         ]
         
         if labels.count != data.count || labels.count == 0 {
-            var tempChart = BarChartView(frame: frame)
+            let tempChart = BarChartView(frame: frame)
             tempChart.noDataText = "Chart数据错误"
         }
-//        var values: [[Double]] = 
+
+
         
-        var dataLabels: [String] = labels
+        let dataLabels: [String] = labels
         let values = data
         
         var dataEntries: [BarChartDataEntry] = []
@@ -207,15 +329,15 @@ public class DrawCharts{
         
 //        print(dataEntries)
         
-        var chartView = BarChartView(frame: frame)
-        var barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        let chartView = BarChartView(frame: frame)
+        let barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
         barChartDataSet.stackLabels = ["浅睡眠", "深睡眠", "活动"]
         barChartDataSet.barSpace = 0.1
             
         barChartDataSet.colors = [] + colors[0..<3]
         barChartDataSet.drawValuesEnabled = false
             
-        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        let barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
         chartView.data = barChartData
         
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -229,17 +351,21 @@ public class DrawCharts{
         chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.leftAxis.axisLineColor = colors[3]
         chartView.leftAxis.axisLineWidth = 0.5
+        chartView.leftAxis.setLabelCount(8, force: true)
         
         chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.xAxis.gridColor = colors[3]
+    
         
         chartView.rightAxis.enabled = true
         chartView.rightAxis.drawLabelsEnabled = false
         chartView.rightAxis.gridColor = colors[3]
+        chartView.rightAxis.setLabelCount(8, force: true)
         chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineColor = colors[3]
         chartView.rightAxis.axisLineWidth = 0.5
+
         
         
         
@@ -249,6 +375,7 @@ public class DrawCharts{
         
         chartView.notifyDataSetChanged()
         chartView.setScaleEnabled(false)
+        chartView.userInteractionEnabled = false
 
         return chartView
         
@@ -260,7 +387,7 @@ public class DrawCharts{
     
     ///get temperature chart
     static public func  temperatureAnalysis(frame: CGRect, data: [Double], labels: [String]) ->UIView {
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         let colors = [
             UIColor(red: 75/255, green: 189/255, blue: 210/255, alpha: 1),
             UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1),
@@ -292,9 +419,9 @@ public class DrawCharts{
             
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
-        var lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "体温")
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "体温")
         
         
         
@@ -345,7 +472,7 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 1
         chartView.leftAxis.valueFormatter = numberFormatter
         
@@ -375,7 +502,7 @@ public class DrawCharts{
     
     ///get temperature chart
     static public func  temperature(frame: CGRect, data: [Double], xValues: [Int]) ->UIView {
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         let colors = [
             UIColor(red: 75/255, green: 189/255, blue: 210/255, alpha: 1),
             UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1),
@@ -396,9 +523,9 @@ public class DrawCharts{
             
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
-        var lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "体温")
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "体温")
         
         
         
@@ -409,7 +536,7 @@ public class DrawCharts{
         //            lineChartDataSet.drawCubicEnabled = false
         lineChartDataSet.drawValuesEnabled = false
         lineChartDataSet.lineWidth = 1
-        var dataLabels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21","22", "23", "24"]
+        let dataLabels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21","22", "23", "24"]
         
         
         
@@ -451,7 +578,7 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 1
         chartView.leftAxis.valueFormatter = numberFormatter
         
@@ -482,9 +609,9 @@ public class DrawCharts{
     
     ///get body height analysis chart
     static public func bodyHeightAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->UIView{
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         if data.count != 2{
-            var tempChartView = LineChartView(frame: frame)
+            let tempChartView = LineChartView(frame: frame)
             tempChartView.noDataTextDescription = "error data ,need 2*7 Array"
             myView.addSubview(tempChartView)
             return myView
@@ -499,7 +626,7 @@ public class DrawCharts{
             UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)]
 
         
-        var dataLabels: [String] = labels
+        let dataLabels: [String] = labels
         let values = data
         
         var dataEntries: [ [ChartDataEntry] ] = []
@@ -513,7 +640,7 @@ public class DrawCharts{
         }
         
         
-        var chartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "身高曲线"))
@@ -567,7 +694,7 @@ public class DrawCharts{
         chartView.leftAxis.labelTextColor = colors[3]
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         chartView.xAxis.avoidFirstLastClippingEnabled = true
@@ -589,7 +716,7 @@ public class DrawCharts{
         chartView.notifyDataSetChanged()
         
         // add gradient layer
-        var gradientview = UIView(frame: chartView.contentRect)
+        let gradientview = UIView(frame: chartView.contentRect)
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: chartView.contentRect.width, height: chartView.contentRect.height)
         let color1 = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0).CGColor as CGColorRef
@@ -614,7 +741,7 @@ public class DrawCharts{
     
     ///get body height chart
     static public func bodyHeight(frame: CGRect, data: [Double], labels: [String]) ->UIView {
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         
 
         
@@ -648,9 +775,9 @@ public class DrawCharts{
             
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
-        var lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "身高")
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "身高")
         
         
     
@@ -698,7 +825,7 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         
@@ -728,11 +855,11 @@ public class DrawCharts{
     
     ///get body weight chart
     static public func bodyWeight(frame: CGRect, data: [[Double]], labels: [String]) ->UIView {
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         
         if data.count != 2{
-            var tempView = UIView(frame: frame)
-            var tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            let tempView = UIView(frame: frame)
+            let tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
             tempChartView.noDataTextDescription = "error data need 2*7 Array"
             tempView.addSubview(tempChartView)
             return tempView
@@ -777,7 +904,7 @@ public class DrawCharts{
             
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "体重"))
@@ -829,13 +956,13 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
-        var targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
+        let targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        let targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
         targetLine185.lineDashLengths = [3.0, 3.0]
         targetLine185.lineColor = colors[3]
         targetLine185.lineWidth = 0.5
@@ -880,7 +1007,7 @@ public class DrawCharts{
         
         
         if data.count != 2 {
-            var tempView = BarChartView(frame: frame)
+            let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 2*2 array"
             return tempView
         }
@@ -889,7 +1016,7 @@ public class DrawCharts{
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
             UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)]
         
-        var dataLabels: [String] = ["最高值", "最低值"]
+        let dataLabels: [String] = ["最高值", "最低值"]
         let values = data
         
 
@@ -905,13 +1032,13 @@ public class DrawCharts{
         }
         //        print(dataEntries)
         
-        var chartView = BarChartView(frame: frame)
+        let chartView = BarChartView(frame: frame)
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
             barChartDataSets[i].barSpace = 0.4
             barChartDataSets[i].valueFont = UIFont.boldSystemFontOfSize(12)
-            var numberFormatter = NSNumberFormatter()
+            let numberFormatter = NSNumberFormatter()
             numberFormatter.maximumFractionDigits = 1
             barChartDataSets[i].valueFormatter = numberFormatter
             
@@ -919,7 +1046,7 @@ public class DrawCharts{
 //            barChartDataSets[i].drawValuesEnabled = false
             
         }
-        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        let barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
         barChartData.groupSpace = 1.2
         chartView.data = barChartData
         
@@ -958,7 +1085,7 @@ public class DrawCharts{
     static public func bodyFatAnalysisChart2(frame: CGRect, data: [[Double]]) ->BarChartView{
         
         if data.count != 3 {
-            var tempView = BarChartView(frame: frame)
+            let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 3*2 array"
             return tempView
         }
@@ -967,7 +1094,7 @@ public class DrawCharts{
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
             UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)]
         
-        var dataLabels: [String] = ["早上", "晚上", "其他"]
+        let dataLabels: [String] = ["早上", "晚上", "其他"]
         let values = data
         
         
@@ -981,12 +1108,12 @@ public class DrawCharts{
         }
         //        print(dataEntries)
         
-        var chartView = BarChartView(frame: frame)
+        let chartView = BarChartView(frame: frame)
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
             barChartDataSets[i].barSpace = 0.4
-            var numberFormatter = NSNumberFormatter()
+            let numberFormatter = NSNumberFormatter()
             numberFormatter.maximumFractionDigits = 1
             barChartDataSets[i].valueFormatter = numberFormatter
             barChartDataSets[i].colors = [colors[i]]
@@ -994,7 +1121,7 @@ public class DrawCharts{
 //            barChartDataSets[i].drawValuesEnabled = false
             
         }
-        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        let barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
         barChartData.groupSpace = 1.2
         chartView.data = barChartData
         //        chartView.xAxis.enabled = false
@@ -1039,11 +1166,11 @@ public class DrawCharts{
     
     ///get blood fat monitor chart
     static public func bodyFatMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView {
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         
         if data.count != 3{
-            var tempView = UIView(frame: frame)
-            var tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            let tempView = UIView(frame: frame)
+            let tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
             tempChartView.noDataTextDescription = "error data need 3*7 Array"
             tempView.addSubview(tempChartView)
             return tempView
@@ -1090,7 +1217,7 @@ public class DrawCharts{
             
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "体重"))
@@ -1142,13 +1269,13 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
-        var targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
+        let targetLine185 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        let targetLine249 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
         targetLine185.lineDashLengths = [3.0, 3.0]
         targetLine185.lineColor = colors[3]
         targetLine185.lineWidth = 0.5
@@ -1192,7 +1319,7 @@ public class DrawCharts{
         
         
         if data.count != 3{
-            var tempChartView = LineChartView(frame: frame)
+            let tempChartView = LineChartView(frame: frame)
             tempChartView.noDataTextDescription = "error data ,need 3*7 Array"
             return tempChartView
         }
@@ -1209,7 +1336,7 @@ public class DrawCharts{
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
         
-        var dataLabels: [String] = labels
+        let dataLabels: [String] = labels
         
         let values = data
         
@@ -1227,7 +1354,7 @@ public class DrawCharts{
         }
         
         
-        var chartView = LineChartView(frame: frame)
+        let chartView = LineChartView(frame: frame)
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "体重（kg)   "))
@@ -1287,7 +1414,7 @@ public class DrawCharts{
         chartView.leftAxis.customAxisMax = 100
         //        chartView.leftAxis.drawLabelsEnabled = false
         
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         
         chartView.leftAxis.valueFormatter = numberFormatter
@@ -1298,21 +1425,19 @@ public class DrawCharts{
         chartView.descriptionText = ""
         chartView.legend.formSize = 12
         
-        var targetLine18 = ChartLimitLine(limit: 18.5, label: "")
-        var targetLine24 = ChartLimitLine(limit: 24, label: "")
+        let targetLine18 = ChartLimitLine(limit: 18.5, label: "BMI 18.5")
+        let targetLine24 = ChartLimitLine(limit: 24.9, label: "BMI 24.9")
         targetLine18.lineDashLengths = [5.0, 5.0]
         targetLine18.lineColor = colors[6]
         targetLine18.lineWidth = 0.5
-        targetLine18.valueTextColor = colors[7]
+        targetLine18.valueTextColor = colors[6]
         targetLine18.valueFont = UIFont.systemFontOfSize(10)
-        targetLine18.labelPosition = ChartLimitLine.ChartLimitLabelPosition.Left
         
         targetLine24.lineDashLengths = [5.0, 5.0]
         targetLine24.lineColor = colors[5]
         targetLine24.lineWidth = 0.5
-        targetLine24.valueTextColor = colors[7]
+        targetLine24.valueTextColor = colors[5]
         targetLine24.valueFont = UIFont.systemFontOfSize(10)
-        targetLine24.labelPosition = ChartLimitLine.ChartLimitLabelPosition.Left
         chartView.leftAxis.addLimitLine(targetLine24)
         chartView.leftAxis.addLimitLine(targetLine18)
         
@@ -1359,7 +1484,7 @@ public class DrawCharts{
     /// get blood suger analysis diagram page chart 2
     static public func bloodSugerAnalysisChart2(frame: CGRect, data: [Double]) ->BarChartView {
         if data.count != 4 {
-            var tempView = BarChartView(frame: frame)
+            let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 4*1 array"
             return tempView
         }
@@ -1374,7 +1499,7 @@ public class DrawCharts{
             
         ]
         
-        var dataLabels: [String] = ["空腹", "餐前", "餐后","睡前"]
+        let dataLabels: [String] = ["空腹", "餐前", "餐后","睡前"]
         let values = data
         
         
@@ -1384,19 +1509,19 @@ public class DrawCharts{
             dataEntries.append(dataEntry)
         }
         
-        var chartView = BarChartView(frame: frame)
-        var barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        let chartView = BarChartView(frame: frame)
+        let barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
         
         barChartDataSet.barSpace = 0.65
         barChartDataSet.colors = colors
         barChartDataSet.drawValuesEnabled = true
         barChartDataSet.valueFont = UIFont.boldSystemFontOfSize(16)
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         barChartDataSet.valueFormatter = numberFormatter
         
         
-        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        let barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
         chartView.data = barChartData
         
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -1428,7 +1553,7 @@ public class DrawCharts{
     static public func bloodSugerAnalysisChart1(frame: CGRect, data: [Double]) ->BarChartView {
         
         if data.count != 2 {
-            var tempView = BarChartView(frame: frame)
+            let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 2*1 array"
             return tempView
         }
@@ -1438,7 +1563,7 @@ public class DrawCharts{
             //x label color
             UIColor(red: 86/255, green: 86/255, blue: 86/255, alpha: 1)]
         
-        var dataLabels: [String] = ["最高值", "最低值"]
+        let dataLabels: [String] = ["最高值", "最低值"]
         let values = data
         
         
@@ -1448,19 +1573,19 @@ public class DrawCharts{
             dataEntries.append(dataEntry)
         }
         
-        var chartView = BarChartView(frame: frame)
-        var barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        let chartView = BarChartView(frame: frame)
+        let barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
 
         barChartDataSet.barSpace = 0.65
         barChartDataSet.colors = colors
         barChartDataSet.drawValuesEnabled = true
         barChartDataSet.valueFont = UIFont.boldSystemFontOfSize(16)
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         barChartDataSet.valueFormatter = numberFormatter
             
 
-        var barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        let barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
         chartView.data = barChartData
         
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -1491,7 +1616,7 @@ public class DrawCharts{
     ///get blood suger Monitor chart2
     static public func bloodSugerMonitorChart2(frame: CGRect, data: [Double], labels: [String]) ->UIView {
         
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         
         let colors = [
             //折线颜色 0
@@ -1550,9 +1675,9 @@ public class DrawCharts{
             }
         }
         
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
-        var lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
         lineChartDataSet.colors = [colors[0]]
         lineChartDataSet.drawCircleHoleEnabled = true
         lineChartDataSet.circleColors = circleColors
@@ -1596,14 +1721,14 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine39 = ChartLimitLine(limit: 3.9, label: "3.9")
-        var targetLine61 = ChartLimitLine(limit: 6.1, label: "6.1")
-        var targetLine78 = ChartLimitLine(limit: 7.8, label: "7.8")
+        let targetLine39 = ChartLimitLine(limit: 3.9, label: "3.9")
+        let targetLine61 = ChartLimitLine(limit: 6.1, label: "6.1")
+        let targetLine78 = ChartLimitLine(limit: 7.8, label: "7.8")
         targetLine39.lineDashLengths = [3.0, 3.0]
         targetLine39.lineColor = colors[7]
         targetLine39.lineWidth = 0.5
@@ -1649,17 +1774,17 @@ public class DrawCharts{
     ///get blood suger Monitor chart1
     static public func bloodSugerMonitorChart1(frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
         
-        var chartView = PieChartView(frame: frame)
+        let chartView = PieChartView(frame: frame)
         let colors = [UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 1),
             UIColor(red: 253/255, green: 99/255, blue: 28/255, alpha: 1),
             UIColor(red: 255/255, green: 57/255, blue: 43/255, alpha: 1)]
         
-        var dataLabels: [String] = ["正常", "偏低", "偏高"]
+        let dataLabels: [String] = ["正常", "偏低", "偏高"]
         
         
         
         var dataEntries :[ChartDataEntry] = []
-        var totalCount = normalCount + highCount + lowCount
+        let totalCount = normalCount + highCount + lowCount
         
         
         dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 1))
@@ -1714,7 +1839,7 @@ public class DrawCharts{
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
         
-        var dataLabels: [String] = labels
+        let dataLabels: [String] = labels
         
         let values = data
         
@@ -1739,8 +1864,8 @@ public class DrawCharts{
         }
         
         
-        var chartView = LineChartView(frame: frame)
-        var lineChartDataSet: LineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "血糖")
+        let chartView = LineChartView(frame: frame)
+        let lineChartDataSet: LineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "血糖")
         
         lineChartDataSet.colors = [colors[2]]
         
@@ -1795,9 +1920,9 @@ public class DrawCharts{
         chartView.descriptionText = ""
         chartView.legend.enabled = false
         
-        var targetLine39 = ChartLimitLine(limit: 3.9, label: "空腹低血糖")
-        var targetLine61 = ChartLimitLine(limit: 6.1, label: "空腹高血糖")
-        var targetLine78 = ChartLimitLine(limit: 7.8, label: "餐后高血糖")
+        let targetLine39 = ChartLimitLine(limit: 3.9, label: "空腹低血糖")
+        let targetLine61 = ChartLimitLine(limit: 6.1, label: "空腹高血糖")
+        let targetLine78 = ChartLimitLine(limit: 7.8, label: "餐后高血糖")
         targetLine39.lineDashLengths = [5.0, 3.0]
         targetLine39.lineColor = UIColor(red: 40/255, green: 125/255, blue: 226/255, alpha: 1)
         targetLine39.lineWidth = 0.5
@@ -1863,7 +1988,7 @@ public class DrawCharts{
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
             UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
         
-        var dataLabels: [String] = ["最高值", "最低值"]
+        let dataLabels: [String] = ["最高值", "最低值"]
         let values = data
         
         
@@ -1877,7 +2002,7 @@ public class DrawCharts{
         }
 //        print(dataEntries)
         
-        var chartView = BarChartView(frame: frame)
+        let chartView = BarChartView(frame: frame)
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
@@ -1887,7 +2012,7 @@ public class DrawCharts{
             barChartDataSets[i].drawValuesEnabled = false
             
         }
-        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        let barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
         barChartData.groupSpace = 3
         chartView.data = barChartData
         
@@ -1923,7 +2048,7 @@ public class DrawCharts{
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
             UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
         
-        var dataLabels: [String] = ["早上", "晚上", "其他"]
+        let dataLabels: [String] = ["早上", "晚上", "其他"]
         let values = data
         
         
@@ -1937,7 +2062,7 @@ public class DrawCharts{
         }
         //        print(dataEntries)
         
-        var chartView = BarChartView(frame: frame)
+        let chartView = BarChartView(frame: frame)
         var barChartDataSets: [BarChartDataSet] = []
         for i in 0..<dataEntries.count{
             barChartDataSets.append(BarChartDataSet(yVals: dataEntries[i], label: ""))
@@ -1947,7 +2072,7 @@ public class DrawCharts{
             barChartDataSets[i].drawValuesEnabled = false
             
         }
-        var barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
+        let barChartData = BarChartData(xVals: dataLabels, dataSets: barChartDataSets)
         barChartData.groupSpace = 3
         chartView.data = barChartData
         //        chartView.xAxis.enabled = false
@@ -1992,7 +2117,7 @@ public class DrawCharts{
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
         
-        var dataLabels: [String] = labels
+        let dataLabels: [String] = labels
 
         let values = data
         
@@ -2027,7 +2152,7 @@ public class DrawCharts{
         
         
         
-        var chartView = LineChartView(frame: frame)
+        let chartView = LineChartView(frame: frame)
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "收缩压   "))
@@ -2095,8 +2220,8 @@ public class DrawCharts{
         
         
         //target line
-        var targetLine90 = ChartLimitLine(limit: 90, label: "舒张压")
-        var targetLine140 = ChartLimitLine(limit: 140, label: "收缩压")
+        let targetLine90 = ChartLimitLine(limit: 90, label: "舒张压")
+        let targetLine140 = ChartLimitLine(limit: 140, label: "收缩压")
         targetLine90.lineDashLengths = [5.0, 5.0]
         targetLine90.lineColor = colors[5]
         targetLine90.lineWidth = 0.5
@@ -2147,7 +2272,7 @@ public class DrawCharts{
             "23:00", "24:00"]
         
         if (dataLabels.count > data.count){
-            var tempView = LineChartView(frame: frame)
+            let tempView = LineChartView(frame: frame)
             tempView.noDataText = "data should be Double type Number, 25 elements "
             return tempView
             
@@ -2165,7 +2290,7 @@ public class DrawCharts{
             let dataEntry1 = ChartDataEntry(value: values[i] / 1000, xIndex: i)
             dataEntries1.append(dataEntry1)
         }
-        var chartView = LineChartView(frame: frame)
+        let chartView = LineChartView(frame: frame)
         
         
         let lineChartDataSet1 = LineChartDataSet(yVals: dataEntries1, label: "data 1")
@@ -2217,7 +2342,7 @@ public class DrawCharts{
         
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 1
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.positiveSuffix = "K"
@@ -2261,7 +2386,7 @@ public class DrawCharts{
     
     /// get blood Presure Monitor Chart
     static public func bloodPressureMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView{
-        var myView = UIView(frame: frame)
+        let myView = UIView(frame: frame)
         
         let colors = [UIColor(red: 61/255, green: 180/255, blue: 195/255, alpha: 1),
             UIColor(red: 243/255, green: 153/255, blue: 34/255, alpha: 1),
@@ -2303,7 +2428,7 @@ public class DrawCharts{
             
         }
 
-        var chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
+        let chartView = LineChartView(frame: CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height))
         
         var lineChartDataSets: [LineChartDataSet] = []
         lineChartDataSets.append(LineChartDataSet(yVals: dataEntries[0], label: "收缩压"))
@@ -2356,13 +2481,13 @@ public class DrawCharts{
         //  chartView.leftAxis.drawLabelsEnabled = false
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         chartView.leftAxis.valueFormatter = numberFormatter
         
         //target line
-        var targetLine90 = ChartLimitLine(limit: 90, label: "90")
-        var targetLine140 = ChartLimitLine(limit: 140, label: "140")
+        let targetLine90 = ChartLimitLine(limit: 90, label: "90")
+        let targetLine140 = ChartLimitLine(limit: 140, label: "140")
         targetLine90.lineDashLengths = [3.0, 3.0]
         targetLine90.lineColor = colors[3]
         targetLine90.lineWidth = 0.5
@@ -2405,15 +2530,15 @@ public class DrawCharts{
         let layer2Hight = (140.0 - 90.0) / (220.0 - 40.0)  * totalHight
         let layer3Hight = (90.0 - 40.0) / (220.0 - 40.0) * totalHight
         
-        var bgLayer1 = CALayer()
+        let bgLayer1 = CALayer()
         bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width, height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer1)
-        var bgLayer2 = CALayer()
+        let bgLayer2 = CALayer()
         bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer2)
-        var bgLayer3 = CALayer()
+        let bgLayer3 = CALayer()
         bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer3)
@@ -2430,15 +2555,15 @@ public class DrawCharts{
         let layer2Hight = (80.0 - 40.0) / (120.0 - 0.0)  * totalHight
         let layer3Hight = (40.0 - 0.0) / (120.0 - 0.0) * totalHight
         
-        var bgLayer1 = CALayer()
+        let bgLayer1 = CALayer()
         bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width , height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer1)
-        var bgLayer2 = CALayer()
+        let bgLayer2 = CALayer()
         bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer2)
-        var bgLayer3 = CALayer()
+        let bgLayer3 = CALayer()
         bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer3)
@@ -2453,15 +2578,15 @@ public class DrawCharts{
         let layer2Hight = (80.0 - 60.0) / (100.0 - 10.0)  * totalHight
         let layer3Hight = (60.0 - 10.0) / (100.0 - 10.0) * totalHight
         
-        var bgLayer1 = CALayer()
+        let bgLayer1 = CALayer()
         bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width , height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer1)
-        var bgLayer2 = CALayer()
+        let bgLayer2 = CALayer()
         bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer2)
-        var bgLayer3 = CALayer()
+        let bgLayer3 = CALayer()
         bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer3)
@@ -2476,15 +2601,15 @@ public class DrawCharts{
         let layer2Hight = (150.0 - 90.0) / (210.0 - 30.0)  * totalHight
         let layer3Hight = (90.0 - 30.0) / (210.0 - 30.0) * totalHight
         
-        var bgLayer1 = CALayer()
+        let bgLayer1 = CALayer()
         bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width , height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 235/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer1)
-        var bgLayer2 = CALayer()
+        let bgLayer2 = CALayer()
         bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 254/255, green: 245/255, blue: 233/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer2)
-        var bgLayer3 = CALayer()
+        let bgLayer3 = CALayer()
         bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer3)
@@ -2508,7 +2633,7 @@ public class DrawCharts{
         
         var yOffset: CGFloat = 0.0
         for i in 0..<layersHight.count{
-            var bgLayer = CALayer()
+            let bgLayer = CALayer()
             
             bgLayer.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + yOffset, width: contentFrame.width, height: layersHight[i])
             bgLayer.backgroundColor = colors[i].CGColor
@@ -2527,15 +2652,15 @@ public class DrawCharts{
         let layer2Hight = (37.0 - 36.0) / (41.5 - 35.5)   * totalHight
         let layer3Hight = (36.0 - 35.5) / (41.5 - 35.5)  * totalHight
         
-        var bgLayer1 = CALayer()
+        let bgLayer1 = CALayer()
         bgLayer1.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y, width: contentFrame.width , height: layer1Hight)
         bgLayer1.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer1)
-        var bgLayer2 = CALayer()
+        let bgLayer2 = CALayer()
         bgLayer2.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight, width: contentFrame.width, height: layer2Hight)
         bgLayer2.backgroundColor = UIColor(red: 230/255, green: 252/255, blue: 237/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer2)
-        var bgLayer3 = CALayer()
+        let bgLayer3 = CALayer()
         bgLayer3.frame = CGRect(x: contentFrame.origin.x, y: contentFrame.origin.y + layer1Hight + layer2Hight, width: contentFrame.width, height: layer3Hight)
         bgLayer3.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).CGColor
         targetView.layer.addSublayer(bgLayer3)
@@ -2543,20 +2668,20 @@ public class DrawCharts{
     }
     
     
-    static private func analysisChart3(#frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
+    static private func analysisChart3(frame frame: CGRect, normalCount: Int, highCount: Int, lowCount: Int) ->PieChartView {
         
-        var chartView = PieChartView(frame: frame)
+        let chartView = PieChartView(frame: frame)
         let colors = [
             UIColor(red: 255/255, green: 36/255, blue: 35/255, alpha: 1),
             UIColor(red: 254/255, green: 140/255, blue: 0/255, alpha: 1),
             UIColor(red: 15/255, green: 221/255, blue: 74/255, alpha: 1)
             ]
         
-        var dataLabels: [String] = [" ", " ", " "]
+        let dataLabels: [String] = [" ", " ", " "]
         
         
         var dataEntries :[ChartDataEntry] = []
-        var totalCount = normalCount + highCount + lowCount
+        let totalCount = normalCount + highCount + lowCount
         
         dataEntries.append(ChartDataEntry(value: Double(highCount)/Double(totalCount), xIndex: 0))
         dataEntries.append(ChartDataEntry(value: Double(lowCount)/Double(totalCount), xIndex: 1))

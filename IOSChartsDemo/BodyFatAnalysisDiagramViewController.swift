@@ -27,8 +27,7 @@ class BodyFatAnalysisDiagramViewController: UIViewController {
     
 
     func testbodyFatAnalysisChart3(){
-        let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
-        var chartView = DrawCharts.bodyFatAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 5, lowCount: 2)
+        let chartView = DrawCharts.bodyFatAnalysisChart3(CGRect(x: 0, y: 264, width: view.frame.width * 2/5 , height: 100), normalCount: 3, highCount: 5, lowCount: 2)
         
         view.addSubview(chartView)
         
@@ -36,14 +35,14 @@ class BodyFatAnalysisDiagramViewController: UIViewController {
     
     func testbodyFatAnalysisChart2(){
         let unitsSold = [[65.0, 30.1], [65.0, 30], [63.0, 30]]
-        var chartView = DrawCharts.bodyFatAnalysisChart2(CGRect(x: view.frame.width * 2/5 , y: 164, width: view.frame.width * 3/5 , height: 100), data: unitsSold)
+        let chartView = DrawCharts.bodyFatAnalysisChart2(CGRect(x: view.frame.width * 2/5 , y: 164, width: view.frame.width * 3/5 , height: 100), data: unitsSold)
         view.addSubview(chartView)
         
     }
     
     func testbodyFatAnalysisChart1(){
         let unitsSold = [[60.0, 30], [64.3, 30]]
-        var chartView = DrawCharts.bodyFatAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 100), data: unitsSold)
+        let chartView = DrawCharts.bodyFatAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 100), data: unitsSold)
         view.addSubview(chartView)
         
     }

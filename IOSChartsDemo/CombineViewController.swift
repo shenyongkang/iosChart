@@ -29,12 +29,7 @@ class CombineViewController: UIViewController {
     
     
     func setChart(dataPoints: [String], values: [Double]){
-        let colors = [UIColor(red: 60/255, green: 222/255, blue: 229/255, alpha: 0.9),
-            UIColor(red: 70/255, green: 237/255, blue: 167/255, alpha: 0.9),
-            UIColor(red: 70/255, green: 177/255, blue: 235/255, alpha: 0.9),
-            UIColor(red: 195/255, green: 179/255, blue: 227/255, alpha: 0.9),
-            UIColor(red: 220/255, green: 250/255, blue: 100/255, alpha: 0.9),
-            UIColor(red: 214/255, green: 130/255, blue: 182/255, alpha: 0.9)]
+   
         
         combineViewChart.drawOrder = [CombinedChartDrawOrder.Line.rawValue, CombinedChartDrawOrder.Bubble.rawValue]
         
@@ -49,12 +44,11 @@ class CombineViewController: UIViewController {
             
         }
         //set data
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "aa")
         let lineDataSet = LineChartDataSet(yVals: dataEntries)
         let bubbleDataSet = BubbleChartDataSet(yVals: bubbleDataEntries)
         bubbleDataSet.colors = [UIColor.whiteColor()]
 
-        var combineData = CombinedChartData(xVals: dataPoints)
+        let combineData = CombinedChartData(xVals: dataPoints)
         combineData.lineData = LineChartData(xVals: dataPoints, dataSet: lineDataSet)
 //        combineData.barData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         combineData.bubbleData = BubbleChartData(xVals: dataPoints, dataSet: bubbleDataSet)

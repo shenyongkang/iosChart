@@ -26,7 +26,7 @@ class BloodSugerAnalysisDiagramViewController: UIViewController {
     
     func testbloodSugerAnalysisChart1(){
         let unitsSold = [18.0, 15]
-        var chartView = DrawCharts.bloodSugerAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 120), data: unitsSold)
+        let chartView = DrawCharts.bloodSugerAnalysisChart1(CGRect(x: 0, y: 164, width: view.frame.width * 2/5 , height: 120), data: unitsSold)
         view.addSubview(chartView)
         
     }
@@ -34,13 +34,12 @@ class BloodSugerAnalysisDiagramViewController: UIViewController {
     
     func testbloodSugerAnalysisChart2(){
         let unitsSold = [18.0, 15, 24, 20]
-        var chartView = DrawCharts.bloodSugerAnalysisChart2(CGRect(x: view.frame.width * 2/5, y: 164, width: view.frame.width * 2/5 , height: 120), data: unitsSold)
+        let chartView = DrawCharts.bloodSugerAnalysisChart2(CGRect(x: view.frame.width * 2/5, y: 164, width: view.frame.width * 2/5 , height: 120), data: unitsSold)
         view.addSubview(chartView)
         
     }
     func testbloodSugerAnalysisChart3(){
-        let unitsSold = [50.0, 130, 90, 120.0, 140, 88, 123.0, 150, 80]
-        var chartView = DrawCharts.bloodSugerAnalysisChart3(CGRect(x: 0, y: 364, width: view.frame.width * 2/5 , height: 100), normalCount: 40, highCount: 20, lowCount: 5)
+        let chartView = DrawCharts.bloodSugerAnalysisChart3(CGRect(x: 0, y: 364, width: view.frame.width * 2/5 , height: 100), normalCount: 40, highCount: 20, lowCount: 5)
         
         view.addSubview(chartView)
         

@@ -26,7 +26,7 @@ class BloodPressureAnalysisCurveViewController: UIViewController {
     func testBloodPressureAnalysis(){
         let unitsSold = [[141.0, 134.0, 126.0, 133.0, 122.0, 136.0, 134.0], [81.0, 94.0, 116.0, 83.0, 112.0, 126.0, 84.0], [72.0, 64.0, 86.0, 73.0, 92.0, 76, 60]]
         let dataLabels = ["22" , "23","24", "25",  "26", "27", "28"]
-        var chartView = DrawCharts.bloodPressureAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bloodPressureAnalysis(CGRect(x: 0, y: 164, width: view.frame.width , height: 400), data: unitsSold, labels: dataLabels)
         view.addSubview(chartView)
         
         

@@ -27,7 +27,7 @@ class DrawchartsGuide{
             let dataEntry1 = ChartDataEntry(value: values[i], xIndex: i)
             dataEntries1.append(dataEntry1)
         }
-        var chartView = LineChartView(frame: frame)
+        let chartView = LineChartView(frame: frame)
         
         
         let lineChartDataSet1 = LineChartDataSet(yVals: dataEntries1, label: "")
@@ -76,7 +76,7 @@ class DrawchartsGuide{
         
         
         //value格式化
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.maximumFractionDigits = 1
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.positiveSuffix = "公里"
@@ -95,9 +95,9 @@ class DrawchartsGuide{
         
         
         //添加渐变
-        var image = UIImage(named: "bg_guide")
+        let image = UIImage(named: "bg_guide")
         
-        var backgroundImage = UIImageView(image: image)
+        let backgroundImage = UIImageView(image: image)
         backgroundImage.contentMode = UIViewContentMode.ScaleToFill
         
         backgroundImage.alpha = 0.3

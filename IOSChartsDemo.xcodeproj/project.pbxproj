@@ -10,6 +10,7 @@
 		4B2891E81B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */; };
 		4B2891EA1B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift */; };
 		4B2891EC1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2891EB1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift */; };
+		4B453E3C1BCB92D6007D77A7 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B453E3B1BCB92D6007D77A7 /* PedometerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4B9BF9121B82C1740056C990 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BF9111B82C1740056C990 /* AppDelegate.swift */; };
 		4B9BF9191B82C1740056C990 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF9181B82C1740056C990 /* Images.xcassets */; };
 		4B9BF91C1B82C1740056C990 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9BF91A1B82C1740056C990 /* LaunchScreen.xib */; };
@@ -44,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4B453E391BCB82A5007D77A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B9BF9311B82C24D0056C990 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = ChartsTV;
+		};
 		4B9BF9221B82C1740056C990 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4B9BF9041B82C1740056C990 /* Project object */;
@@ -85,6 +93,7 @@
 		4B2891E71B86B7CE004FEA90 /* BloodSugerMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerMonitorViewController.swift; sourceTree = "<group>"; };
 		4B2891E91B86B7FE004FEA90 /* BloodSugerAnalysisDiagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysisDiagramViewController.swift; sourceTree = "<group>"; };
 		4B2891EB1B86B887004FEA90 /* BloodSugerAnalysisCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodSugerAnalysisCurveViewController.swift; sourceTree = "<group>"; };
+		4B453E3B1BCB92D6007D77A7 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		4B9BF90C1B82C1740056C990 /* IOSChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9BF9101B82C1740056C990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B9BF9111B82C1740056C990 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +169,7 @@
 				4BB9AA831B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift */,
 				8F0021381BA2797D006E13D5 /* SleepAnalysisOneDayViewController.swift */,
 				8F00213A1BA279F2006E13D5 /* SleepAnalysisOneWeekViewController.swift */,
+				4B453E3B1BCB92D6007D77A7 /* PedometerViewController.swift */,
 			);
 			name = testViewController;
 			sourceTree = "<group>";
@@ -228,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				4B9BF9361B82C24D0056C990 /* Charts.framework */,
+				4B453E3A1BCB82A5007D77A7 /* ChartsTV.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,7 +304,9 @@
 		4B9BF9041B82C1740056C990 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = kankan;
 				TargetAttributes = {
 					4B9BF90B1B82C1740056C990 = {
@@ -331,6 +344,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		4B453E3A1BCB82A5007D77A7 /* ChartsTV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsTV.framework;
+			remoteRef = 4B453E391BCB82A5007D77A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		4B9BF9361B82C24D0056C990 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -390,6 +410,7 @@
 				4BB9AA7E1B8C67A900A4D459 /* HomePageViewController.swift in Sources */,
 				4B9BF94C1B82C5EF0056C990 /* LineChartViewController.swift in Sources */,
 				8F0021391BA2797D006E13D5 /* SleepAnalysisOneDayViewController.swift in Sources */,
+				4B453E3C1BCB92D6007D77A7 /* PedometerViewController.swift in Sources */,
 				4BB9AA841B8C67FE00A4D459 /* BloodPressureAnalysisCurveViewController.swift in Sources */,
 				4B9BF94D1B82C5EF0056C990 /* DrawChartsGuide.swift in Sources */,
 				4BB9AA7A1B8C3C3D00A4D459 /* TemperatureViewController.swift in Sources */,
@@ -452,6 +473,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -519,6 +541,7 @@
 				INFOPLIST_FILE = IOSChartsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kankan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -530,6 +553,7 @@
 				INFOPLIST_FILE = IOSChartsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kankan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -548,6 +572,7 @@
 				);
 				INFOPLIST_FILE = IOSChartsDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kankan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSChartsDemo.app/IOSChartsDemo";
 			};
@@ -563,6 +588,7 @@
 				);
 				INFOPLIST_FILE = IOSChartsDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kankan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSChartsDemo.app/IOSChartsDemo";
 			};

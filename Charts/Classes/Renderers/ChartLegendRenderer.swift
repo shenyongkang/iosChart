@@ -37,15 +37,15 @@ public class ChartLegendRenderer: ChartRendererBase
             // loop for building up the colors and labels used in the legend
             for (var i = 0, count = data.dataSetCount; i < count; i++)
             {
-                var dataSet = data.getDataSetByIndex(i)!
+                let dataSet = data.getDataSetByIndex(i)!
                 
                 var clrs: [UIColor] = dataSet.colors
-                var entryCount = dataSet.entryCount
+                let entryCount = dataSet.entryCount
                 
                 // if we have a barchart with stacked bars
                 if (dataSet.isKindOfClass(BarChartDataSet) && (dataSet as! BarChartDataSet).isStacked)
                 {
-                    var bds = dataSet as! BarChartDataSet
+                    let bds = dataSet as! BarChartDataSet
                     var sLabels = bds.stackLabels
                     
                     for (var j = 0; j < clrs.count && j < bds.stackSize; j++)
@@ -64,7 +64,7 @@ public class ChartLegendRenderer: ChartRendererBase
                 else if (dataSet.isKindOfClass(PieChartDataSet))
                 {
                     var xVals = data.xVals
-                    var pds = dataSet as! PieChartDataSet
+                    let pds = dataSet as! PieChartDataSet
                     
                     for (var j = 0; j < clrs.count && j < entryCount && j < xVals.count; j++)
                     {
@@ -107,45 +107,48 @@ public class ChartLegendRenderer: ChartRendererBase
         _legend.calculateDimensions(labelFont: _legend.font, viewPortHandler: viewPortHandler)
     }
     
-    public func renderLegend(#context: CGContext)
+    public func renderLegend(context context: CGContext?)
     {
         if (_legend === nil || !_legend.enabled)
         {
             return
         }
         
-        var labelFont = _legend.font
-        var labelTextColor = _legend.textColor
-        var labelLineHeight = labelFont.lineHeight
-        var formYOffset = labelLineHeight / 2.0
+        let labelFont = _legend.font
+        let labelTextColor = _legend.textColor
+        let labelLineHeight = labelFont.lineHeight
+        let formYOffset = labelLineHeight / 2.0
 
         var labels = _legend.labels
         var colors = _legend.colors
         
-        var formSize = _legend.formSize
-        var formToTextSpace = _legend.formToTextSpace
-        var xEntrySpace = _legend.xEntrySpace
-        var direction = _legend.direction
+        let formSize = _legend.formSize
+        let formToTextSpace = _legend.formToTextSpace
+        let xEntrySpace = _legend.xEntrySpace
+        let direction = _legend.direction
 
         // space between the entries
-        var stackSpace = _legend.stackSpace
+        let stackSpace = _legend.stackSpace
 
-        var yoffset = _legend.yOffset
-        var xoffset = _legend.xOffset
+        let yoffset = _legend.yOffset
+        let xoffset = _legend.xOffset
         
-        var legendPosition = _legend.position
+        let legendPosition = _legend.position
         
         switch (legendPosition)
         {
         case .BelowChartLeft: fallthrough
         case .BelowChartRight: fallthrough
-        case .BelowChartCenter:
+        case .BelowChartCenter: fallthrough
+        case .AboveChartLeft: fallthrough
+        case .AboveChartRight: fallthrough
+        case .AboveChartCenter:
             
-            var contentWidth: CGFloat = viewPortHandler.contentWidth
+            let contentWidth: CGFloat = viewPortHandler.contentWidth
             
             var originPosX: CGFloat
             
-            if (legendPosition == .BelowChartLeft)
+            if (legendPosition == .BelowChartLeft || legendPosition == .AboveChartLeft)
             {
                 originPosX = viewPortHandler.contentLeft + xoffset
                 
@@ -154,7 +157,7 @@ public class ChartLegendRenderer: ChartRendererBase
                     originPosX += _legend.neededWidth
                 }
             }
-            else if (legendPosition == .BelowChartRight)
+            else if (legendPosition == .BelowChartRight || legendPosition == .AboveChartRight)
             {
                 originPosX = viewPortHandler.contentRight - xoffset
                 
@@ -163,7 +166,7 @@ public class ChartLegendRenderer: ChartRendererBase
                     originPosX -= _legend.neededWidth
                 }
             }
-            else // if (legendPosition == .BelowChartCenter)
+            else // .BelowChartCenter || .AboveChartCenter
             {
                 originPosX = viewPortHandler.contentLeft + contentWidth / 2.0
             }
@@ -173,26 +176,37 @@ public class ChartLegendRenderer: ChartRendererBase
             var calculatedLabelBreakPoints = _legend.calculatedLabelBreakPoints
             
             var posX: CGFloat = originPosX
-            var posY: CGFloat = viewPortHandler.chartHeight - yoffset - _legend.neededHeight
+            var posY: CGFloat
+            
+            if (legendPosition == .AboveChartLeft
+                || legendPosition == .AboveChartRight
+                || legendPosition == .AboveChartCenter)
+            {
+                posY = 0
+            }
+            else
+            {
+                posY = viewPortHandler.chartHeight - yoffset - _legend.neededHeight
+            }
             
             var lineIndex: Int = 0
             
             for (var i = 0, count = labels.count; i < count; i++)
             {
-                if (calculatedLabelBreakPoints[i])
+                if (i < calculatedLabelBreakPoints.count && calculatedLabelBreakPoints[i])
                 {
                     posX = originPosX
                     posY += labelLineHeight
                 }
                 
-                if (posX == originPosX && legendPosition == .BelowChartCenter)
+                if (posX == originPosX && legendPosition == .BelowChartCenter && lineIndex < calculatedLineSizes.count)
                 {
                     posX += (direction == .RightToLeft ? calculatedLineSizes[lineIndex].width : -calculatedLineSizes[lineIndex].width) / 2.0
                     lineIndex++
                 }
                 
-                var drawingForm = colors[i] != nil
-                var isStacked = labels[i] == nil; // grouped forms have null labels
+                let drawingForm = colors[i] != nil
+                let isStacked = labels[i] == nil; // grouped forms have null labels
                 
                 if (drawingForm)
                 {
@@ -258,7 +272,7 @@ public class ChartLegendRenderer: ChartRendererBase
             }
             else
             {
-                var isRightAligned = legendPosition == .RightOfChart ||
+                let isRightAligned = legendPosition == .RightOfChart ||
                     legendPosition == .RightOfChartCenter ||
                     legendPosition == .RightOfChartInside
                 
@@ -298,7 +312,7 @@ public class ChartLegendRenderer: ChartRendererBase
             
             for (var i = 0; i < labels.count; i++)
             {
-                var drawingForm = colors[i] != nil
+                let drawingForm = colors[i] != nil
                 var x = posX
                 
                 if (drawingForm)
@@ -364,16 +378,16 @@ public class ChartLegendRenderer: ChartRendererBase
     private var _formLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     /// Draws the Legend-form at the given position with the color at the given index.
-    internal func drawForm(context: CGContext, x: CGFloat, y: CGFloat, colorIndex: Int, legend: ChartLegend)
+    internal func drawForm(context: CGContext?, x: CGFloat, y: CGFloat, colorIndex: Int, legend: ChartLegend)
     {
-        var formColor = legend.colors[colorIndex]
+        let formColor = legend.colors[colorIndex]
         
         if (formColor === nil || formColor == UIColor.clearColor())
         {
             return
         }
         
-        var formsize = legend.formSize
+        let formsize = legend.formSize
         
         CGContextSaveGState(context)
         
@@ -405,7 +419,7 @@ public class ChartLegendRenderer: ChartRendererBase
     }
 
     /// Draws the provided label at the given position.
-    internal func drawLabel(context: CGContext, x: CGFloat, y: CGFloat, label: String, font: UIFont, textColor: UIColor)
+    internal func drawLabel(context: CGContext?, x: CGFloat, y: CGFloat, label: String, font: UIFont, textColor: UIColor)
     {
         ChartUtils.drawText(context: context, text: label, point: CGPoint(x: x, y: y), align: .Left, attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor])
     }

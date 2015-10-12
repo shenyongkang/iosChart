@@ -28,7 +28,7 @@ class BloodPressureMonitorViewController: UIViewController {
         let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
         
         
-        var chartView = DrawCharts.bloodPressureMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bloodPressureMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: unitsSold, labels: dataLabels)
 
         view.addSubview(chartView)
         

@@ -24,7 +24,7 @@ class HomePageViewController: UIViewController {
     
     func testHomePageChart(){
         let unitsSold = [1.0, 13, 118, 113, 120, 1121, 1629, 2150, 2280, 3120, 3150, 3170, 3190, 4201, 4203, 4528, 4640, 4751, 5263, 5271, 5290, 5300, 5408, 5420, 5420]
-        var chartView = DrawCharts.homePageView1(CGRect(x: 0, y: 64, width: view.frame.width , height: 200), data: unitsSold)
+        let chartView = DrawCharts.homePageView1(CGRect(x: 0, y: 64, width: view.frame.width , height: 200), data: unitsSold)
         
         view.addSubview(chartView)
         

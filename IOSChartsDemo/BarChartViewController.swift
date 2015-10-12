@@ -19,7 +19,7 @@ class BarChartViewController: UIViewController, ChartViewDelegate{
         let months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         let unitsSold = [21.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
         setChart(months, values: unitsSold)
-        println("here")
+        print("here")
         
         
         
@@ -27,7 +27,7 @@ class BarChartViewController: UIViewController, ChartViewDelegate{
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight){
-        println("\(entry.value) in \(entry.xIndex)")
+        print("\(entry.value) in \(entry.xIndex)")
     }
     
     func setChart(dataPoints: [String], values: [Double]){

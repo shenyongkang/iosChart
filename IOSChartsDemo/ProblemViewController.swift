@@ -19,7 +19,7 @@ class ProblemViewController: UIViewController {
         
         setChart(topView, dataPoints: months, values: unitsSold)
         
-        var bottomView: LineChartView! = LineChartView(frame: CGRect(x: 0, y: 364, width: view.frame.width , height: self.topView.frame.size.height))
+        let bottomView: LineChartView! = LineChartView(frame: CGRect(x: 0, y: 364, width: view.frame.width , height: self.topView.frame.size.height))
         
         topView.setNeedsDisplay()
 
@@ -31,9 +31,9 @@ class ProblemViewController: UIViewController {
        // bottomView.autoresizesSubviews = true
         view.addSubview(bottomView)
         
-        print(topView)
-        print("\n")
-        print(bottomView)
+        print(topView, terminator: "")
+        print("\n", terminator: "")
+        print(bottomView, terminator: "")
         
         
 
@@ -98,8 +98,8 @@ class ProblemViewController: UIViewController {
         chartView.descriptionText = ""
         
         
-        var targetLine90 = ChartLimitLine(limit: 9, label: "9")
-        var targetLine120 = ChartLimitLine(limit: 12, label: "12")
+        let targetLine90 = ChartLimitLine(limit: 9, label: "9")
+        let targetLine120 = ChartLimitLine(limit: 12, label: "12")
         chartView.leftAxis.addLimitLine(targetLine90)
         chartView.leftAxis.addLimitLine(targetLine120)
         
