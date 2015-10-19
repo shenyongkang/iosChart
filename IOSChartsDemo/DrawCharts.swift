@@ -134,6 +134,152 @@ public class DrawCharts{
         
     }
     
+    /// get sleep analysis one day chart method two
+    static public func sleepAnalysisOneDay2(frame: CGRect,sleepDuration: [Int], sleepType: [String], startTime: Int) ->BarChartView {
+        let colors = [UIColor(red: 11/255, green: 55/255, blue: 144/255, alpha: 1),
+            UIColor(red: 48/255, green: 120/255, blue: 254/255, alpha: 1),
+            UIColor(red: 123/255, green: 179/255, blue: 254/255, alpha: 1),
+            UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            
+        ]
+        
+        if sleepDuration.count != sleepType.count {
+            let tempChart = HorizontalBarChartView(frame: frame)
+            tempChart.noDataText = "Chart数据错误"
+            return tempChart
+        }
+        var values = [Double]()
+        var dataLabels = [String]()
+        var colorsList = [UIColor]()
+        for i in 0..<sleepDuration.count {
+            let duration = sleepDuration[i]
+            var value:Double = 0.0
+            var colorIndex:Int = 4
+            switch sleepType[i]{
+            case "D" :
+                value = 3.0
+                colorIndex = 0
+            case "S" :
+                value = 2.0
+                colorIndex = 1
+            case "A" :
+                value = 1.0
+                colorIndex = 2
+            case "N" :
+                value = 3.5
+                colorIndex = 4
+            default:
+                value = 0.0
+                colorIndex = 4
+                
+                
+            }
+            
+            for _ in 0..<duration{
+                values.append(value)
+                colorsList.append(colors[colorIndex])
+                dataLabels.append("")
+                
+            }
+            
+        }
+        var sleepLabels = [String]()
+        for i in 0...24{
+            if i % 4 == 0{
+                sleepLabels.append(String((startTime + i) % 24 ) + ":00")
+            }
+            
+        }
+        dataLabels[0] = sleepLabels[0]
+        
+        
+        
+        
+        
+        for i in 1..<sleepLabels.count{
+            if  dataLabels.count > (240 * i ) {
+                dataLabels[240 * i ] = sleepLabels[i]
+
+            }
+        }
+        dataLabels.append(sleepLabels[sleepLabels.count - 1])
+//        print(values.count)
+        let chartView = BarChartView(frame: frame)
+        
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<values.count{
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+            
+        }
+        
+        print(dataEntries.count)
+        
+        let barChartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        barChartDataSet.barSpace = 0
+        
+        barChartDataSet.colors = colorsList
+        barChartDataSet.drawValuesEnabled = false
+        print(dataLabels.count)
+        let barChartData = BarChartData(xVals: dataLabels, dataSet: barChartDataSet)
+        chartView.data = barChartData
+        
+        
+        
+        
+        chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        chartView.xAxis.labelPosition = .Bottom
+        chartView.descriptionText = ""
+        
+        chartView.leftAxis.enabled = true
+        chartView.leftAxis.drawLabelsEnabled = false
+        chartView.leftAxis.gridColor = colors[3]
+        chartView.leftAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.leftAxis.axisLineColor = colors[3]
+        chartView.leftAxis.axisLineWidth = 0.5
+        chartView.leftAxis.setLabelCount(25, force: true)
+        
+        chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.xAxis.gridColor = colors[3]
+        chartView.xAxis.setLabelsToSkip(59)
+        chartView.xAxis.avoidFirstLastClippingEnabled = false
+        chartView.extraLeftOffset = 15
+        chartView.extraRightOffset = 15
+        
+        
+        chartView.rightAxis.enabled = true
+        chartView.rightAxis.drawLabelsEnabled = false
+        chartView.rightAxis.gridColor = colors[3]
+        chartView.rightAxis.setLabelCount(25, force: true)
+        chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
+        chartView.rightAxis.axisLineColor = colors[3]
+        chartView.rightAxis.axisLineWidth = 0.5
+        
+        
+        
+        chartView.backgroundColor = colors[5]
+        chartView.gridBackgroundColor = colors[5]
+        chartView.legend.enabled = false
+        
+        chartView.notifyDataSetChanged()
+        chartView.setScaleEnabled(false)
+        chartView.userInteractionEnabled = false
+        
+        
+        
+        return chartView
+        
+        
+    }
+    
+    
+    
+    
+    
     /// get sleep analysis one day chart
     static public func sleepAnalysisOneDay(frame: CGRect,sleepDuration: [Double], sleepType: [String]) ->HorizontalBarChartView {
         let colors = [UIColor(red: 11/255, green: 55/255, blue: 144/255, alpha: 1),
