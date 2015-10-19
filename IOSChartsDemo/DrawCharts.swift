@@ -187,7 +187,7 @@ public class DrawCharts{
         }
         var sleepLabels = [String]()
         for i in 0...24{
-            if i % 4 == 0{
+            if i % 8 == 0{
                 sleepLabels.append(String((startTime + i) % 24 ) + ":00")
             }
             
@@ -199,8 +199,8 @@ public class DrawCharts{
         
         
         for i in 1..<sleepLabels.count{
-            if  dataLabels.count > (240 * i ) {
-                dataLabels[240 * i ] = sleepLabels[i]
+            if  dataLabels.count > (480 * i ) {
+                dataLabels[480 * i ] = sleepLabels[i]
 
             }
         }
@@ -240,11 +240,11 @@ public class DrawCharts{
         chartView.leftAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.leftAxis.axisLineColor = colors[3]
         chartView.leftAxis.axisLineWidth = 0.5
-        chartView.leftAxis.setLabelCount(25, force: true)
+        chartView.leftAxis.setLabelCount(13, force: true)
         
         chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.xAxis.gridColor = colors[3]
-        chartView.xAxis.setLabelsToSkip(59)
+        chartView.xAxis.setLabelsToSkip(119)
         chartView.xAxis.avoidFirstLastClippingEnabled = false
         chartView.extraLeftOffset = 15
         chartView.extraRightOffset = 15
@@ -253,7 +253,7 @@ public class DrawCharts{
         chartView.rightAxis.enabled = true
         chartView.rightAxis.drawLabelsEnabled = false
         chartView.rightAxis.gridColor = colors[3]
-        chartView.rightAxis.setLabelCount(25, force: true)
+        chartView.rightAxis.setLabelCount(13, force: true)
         chartView.rightAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineDashLengths = [3.0, 3.0]
         chartView.rightAxis.axisLineColor = colors[3]
