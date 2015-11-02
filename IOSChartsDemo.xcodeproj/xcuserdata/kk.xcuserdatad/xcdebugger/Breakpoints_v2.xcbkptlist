@@ -26,39 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "468140302.583552"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1936"
-            endingLineNumber = "1936"
-            landmarkName = "bloodSugerMonitorChart2(_:data:labels:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "468140302.583552"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1993"
-            endingLineNumber = "1993"
-            landmarkName = "bloodSugerMonitorChart2(_:data:labels:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "468140302.583552"
+            timestampString = "468141330.516915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1937"
@@ -74,11 +42,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "468140302.583552"
+            timestampString = "468141330.516915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1935"
-            endingLineNumber = "1935"
+            startingLineNumber = "1994"
+            endingLineNumber = "1994"
+            landmarkName = "bloodSugerMonitorChart2(_:data:labels:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSChartsDemo/DrawCharts.swift"
+            timestampString = "468141330.516915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1938"
+            endingLineNumber = "1938"
+            landmarkName = "bloodSugerMonitorChart2(_:data:labels:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSChartsDemo/DrawCharts.swift"
+            timestampString = "468141330.516915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1936"
+            endingLineNumber = "1936"
             landmarkName = "bloodSugerMonitorChart2(_:data:labels:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IOSChartsDemo/DrawCharts.swift"
-            timestampString = "468139397.631717"
+            timestampString = "468141330.516915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "sleepAnalysisOneDay(_:sleepDuration:sleepType:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -92,7 +92,7 @@ public class DrawCharts{
         chartView.leftAxis.axisLineWidth = 0.5
         
         chartView.xAxis.labelPosition = .Bottom
-        chartView.xAxis.labelTextColor = colors[1]
+        chartView.xAxis.labelTextColor = UIColor.whiteColor()
         chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.xAxis.gridColor = colors[1]
         chartView.xAxis.axisLineColor = colors[1]
@@ -256,6 +256,7 @@ public class DrawCharts{
         chartView.xAxis.gridLineDashLengths = [3.0, 3.0]
         chartView.xAxis.gridColor = colors[3]
         chartView.xAxis.setLabelsToSkip(119)
+        chartView.xAxis.labelTextColor = UIColor.whiteColor()
         chartView.xAxis.avoidFirstLastClippingEnabled = false
         chartView.extraLeftOffset = 15
         chartView.extraRightOffset = 15
