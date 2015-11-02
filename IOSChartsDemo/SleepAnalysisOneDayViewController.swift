@@ -29,7 +29,7 @@ class SleepAnalysisOneDayViewController: UIViewController {
         let type = ["N", "A", "D", "S", "D", "A"]
         let rect = CGRect(x: 0, y: 164, width: 300 , height: 300)
         let startTime = 20
-        let myView = DrawCharts.sleepAnalysisOneDay2(rect, sleepDuration: duration, sleepType: type, startTime: startTime)
+        let myView = DrawCharts.sleepAnalysisOneDay2(rect, sleepDuration: duration, sleepType: [], startTime: startTime)
         view.addSubview(myView)
         
     }

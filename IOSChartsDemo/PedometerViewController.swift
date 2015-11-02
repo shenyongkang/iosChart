@@ -18,7 +18,7 @@ class PedometerViewController: UIViewController {
         view.backgroundColor = UIColor(red: 120/255, green: 95/255, blue: 200/255, alpha: 1)
         
         
-        let chartView = DrawCharts.pedometerMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: values, labels: dataLabels)
+        let chartView = DrawCharts.pedometerMonitor(CGRect(x: 0, y: 364, width: view.frame.width , height: 250), data: values, labels: [])
         
         view.addSubview(chartView)    }
 

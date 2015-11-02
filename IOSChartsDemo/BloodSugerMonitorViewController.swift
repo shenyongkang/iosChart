@@ -36,7 +36,7 @@ class BloodSugerMonitorViewController: UIViewController {
         let dataLabels = ["周日" , "周一","周二", "周三",  "周四", "周五", "周日"]
         
         
-        let chartView = DrawCharts.bloodSugerMonitorChart2(CGRect(x: 0, y: 364, width: view.frame.width , height: 200), data: unitsSold, labels: dataLabels)
+        let chartView = DrawCharts.bloodSugerMonitorChart2(CGRect(x: 0, y: 364, width: view.frame.width , height: 200), data: [], labels: [])
         
         view.addSubview(chartView)
         

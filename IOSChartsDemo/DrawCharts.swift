@@ -26,6 +26,11 @@ public class DrawCharts{
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
         
+        if data.count == 0 || labels.count == 0 {
+            let tempChart = HorizontalBarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         
         let values = data
         var dataLabels: [String] = []
@@ -144,12 +149,18 @@ public class DrawCharts{
             UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             
         ]
-        
+        if sleepDuration.count == 0 || 0 == sleepType.count {
+            let tempChart = HorizontalBarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         if sleepDuration.count != sleepType.count {
             let tempChart = HorizontalBarChartView(frame: frame)
             tempChart.noDataText = "Chart数据错误"
             return tempChart
         }
+ 
+        
         var values = [Double]()
         var dataLabels = [String]()
         var colorsList = [UIColor]()
@@ -270,7 +281,6 @@ public class DrawCharts{
         chartView.userInteractionEnabled = false
         
         
-        
         return chartView
         
         
@@ -290,12 +300,18 @@ public class DrawCharts{
             UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             
         ]
+        if sleepDuration.count == 0 && sleepType.count == 0 {
+            let tempChart = HorizontalBarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         
         if sleepDuration.count != sleepType.count {
             let tempChart = HorizontalBarChartView(frame: frame)
             tempChart.noDataText = "Chart数据错误"
             return tempChart
         }
+
         var values: [[Double]] = [[Double]](count: 4, repeatedValue: [])
         let dataLabels: [String] = [String](count: 4, repeatedValue: "")
         var colorsList: [UIColor] = []
@@ -457,10 +473,16 @@ public class DrawCharts{
             
         ]
         
+        if data.count == 0 || labels.count == 0 {
+            let tempChart = BarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+        }
+        
         if labels.count != data.count || labels.count == 0 {
             let tempChart = BarChartView(frame: frame)
             tempChart.noDataText = "Chart数据错误"
         }
+
 
 
         
@@ -542,7 +564,11 @@ public class DrawCharts{
             UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1),
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
-        
+        if data.count == 0 || labels.count == 0 {
+            let tempChart = BarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         
         let values = data
         var dataLabels: [String] = []
@@ -657,8 +683,11 @@ public class DrawCharts{
             UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1),
             UIColor(red: 220/255, green: 250/255, blue: 250/255, alpha: 0)]
         
-        
-
+        if data.count == 0 || xValues.count == 0 {
+            let tempChart = BarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         let values = data
         
 
@@ -757,11 +786,16 @@ public class DrawCharts{
     ///get body height analysis chart
     static public func bodyHeightAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->UIView{
         let myView = UIView(frame: frame)
+
+        if data.count == 0 || labels.count == 0 || data[0].count == 0{
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         if data.count != 2{
-            let tempChartView = LineChartView(frame: frame)
-            tempChartView.noDataTextDescription = "error data ,need 2*7 Array"
-            myView.addSubview(tempChartView)
-            return myView
+            let tempView = LineChartView(frame: frame)
+            tempView.noDataText = "error data ,need 2*7 Array"
+            return tempView
         }
         
         let colors = [UIColor(red: 92/255, green: 165/255, blue: 169/255, alpha: 1),
@@ -890,7 +924,11 @@ public class DrawCharts{
     static public func bodyHeight(frame: CGRect, data: [Double], labels: [String]) ->UIView {
         let myView = UIView(frame: frame)
         
-
+        if data.count == 0 || labels.count == 0 {
+            let tempChart = BarChartView(frame: frame)
+            tempChart.noDataText = "没有数据"
+            return tempChart
+        }
         
         let colors = [UIColor(red: 11/255, green: 209/255, blue: 80/255, alpha: 1),
             UIColor(red: 249/255, green: 153/255, blue: 38/255, alpha: 1),
@@ -1004,11 +1042,15 @@ public class DrawCharts{
     static public func bodyWeight(frame: CGRect, data: [[Double]], labels: [String]) ->UIView {
         let myView = UIView(frame: frame)
         
+
+        if data.count == 0 || labels.count == 0 || data[0].count == 0{
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         if data.count != 2{
-            let tempView = UIView(frame: frame)
-            let tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-            tempChartView.noDataTextDescription = "error data need 2*7 Array"
-            tempView.addSubview(tempChartView)
+            let tempView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            tempView.noDataText = "error data need 2*7 Array"
             return tempView
         }
         
@@ -1158,6 +1200,12 @@ public class DrawCharts{
             tempView.noDataTextDescription = "data: 2*2 array"
             return tempView
         }
+        if data.count == 0 || data[0].count == 0{
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+            
+        }
         
         var colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
@@ -1234,6 +1282,11 @@ public class DrawCharts{
         if data.count != 3 {
             let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 3*2 array"
+            return tempView
+        }
+        if data.count == 0 ||  data[0].count == 0{
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
             return tempView
         }
         
@@ -1315,13 +1368,19 @@ public class DrawCharts{
     static public func bodyFatMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView {
         let myView = UIView(frame: frame)
         
+        if data.count == 0 || labels.count == 0 || data[0].count == 0{
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return  tempView
+        }
+        
         if data.count != 3{
-            let tempView = UIView(frame: frame)
-            let tempChartView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-            tempChartView.noDataTextDescription = "error data need 3*7 Array"
-            tempView.addSubview(tempChartView)
+
+            let tempView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            tempView.noDataTextDescription = "error data need 3*7 Array"
             return tempView
         }
+
         
         
         let colors = [UIColor(red: 11/255, green: 209/255, blue: 80/255, alpha: 1),
@@ -1468,6 +1527,11 @@ public class DrawCharts{
         if data.count != 3{
             let tempChartView = LineChartView(frame: frame)
             tempChartView.noDataTextDescription = "error data ,need 3*7 Array"
+            return tempChartView
+        }
+        if data.count == 0 || labels.count == 0 || data[0].count == 0{
+            let tempChartView = LineChartView(frame: frame)
+            tempChartView.noDataText = "没有数据"
             return tempChartView
         }
         
@@ -1635,6 +1699,11 @@ public class DrawCharts{
             tempView.noDataTextDescription = "data: 4*1 array"
             return tempView
         }
+        if data.count == 0 {
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         
         let colors = [
             UIColor(red: 15/255, green: 227/255, blue: 74/255, alpha: 1),
@@ -1699,6 +1768,12 @@ public class DrawCharts{
     /// get blood suger analysis diagram page chart 1
     static public func bloodSugerAnalysisChart1(frame: CGRect, data: [Double]) ->BarChartView {
         
+
+        if data.count == 0 {
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         if data.count != 2 {
             let tempView = BarChartView(frame: frame)
             tempView.noDataTextDescription = "data: 2*1 array"
@@ -1763,7 +1838,15 @@ public class DrawCharts{
     ///get blood suger Monitor chart2
     static public func bloodSugerMonitorChart2(frame: CGRect, data: [Double], labels: [String]) ->UIView {
         
+        
         let myView = UIView(frame: frame)
+        if data.count == 0 || labels.count == 0 {
+            let tempView = LineChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+            
+        }
+        
         
         let colors = [
             //折线颜色 0
@@ -1974,7 +2057,11 @@ public class DrawCharts{
     
     ///get blood suger curve page analysis charts
     static public func bloodSugerAnalysis(frame: CGRect, data: [Double], labels: [String]) ->LineChartView {
-        
+        if data.count == 0 || labels.count == 0 {
+            let tempView = LineChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         
         let colors = [UIColor(red: 224/255, green: 70/255, blue: 70/255, alpha: 0.9),
             UIColor(red: 31/255, green: 220/255, blue: 89/255, alpha: 0.9),
@@ -2129,8 +2216,11 @@ public class DrawCharts{
     
     /// get blood pressure analysis diagram page chart 1
     static public func bloodPressureAnalysisChart1(frame: CGRect, data: [[Double]]) ->BarChartView{
-    
-        
+        if data.count == 0 || data[0].count == 0 {
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
             UIColor(red: 154/255, green: 108/255, blue: 176/255, alpha: 1)]
@@ -2190,6 +2280,12 @@ public class DrawCharts{
 
     /// get blood pressure analysis diagram page chart 2
     static public func bloodPressureAnalysisChart2(frame: CGRect, data: [[Double]]) ->BarChartView{
+        
+        if data.count == 0 || data[0].count == 0 {
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return tempView
+        }
         
         let colors = [UIColor(red: 73/255, green: 190/255, blue: 203/255, alpha: 1),
             UIColor(red: 255/255, green: 136/255, blue: 3/255, alpha: 1),
@@ -2252,7 +2348,17 @@ public class DrawCharts{
     ///get blood pressure analysis curve page charts
     static public func bloodPressureAnalysis(frame: CGRect, data: [[Double]], labels: [String]) ->LineChartView{
      
-        
+        if labels.count == 0 || data.count == 0 || data[0].count == 0 {
+            let tempView = LineChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return  tempView
+        }
+        if data.count != 3{
+            
+            let tempView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            tempView.noDataTextDescription = "error data need 3* labels.count Array"
+            return tempView
+        }
         
         let colors = [UIColor(red: 61/255, green: 180/255, blue: 195/255, alpha: 1),
             UIColor(red: 239/255, green: 192/255, blue: 58/255, alpha: 1),
@@ -2417,6 +2523,11 @@ public class DrawCharts{
         
         let dataLabels = [" 0:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",
             "23:00", "24:00"]
+        if data.count == 0{
+            let tempView = LineChartView(frame: frame)
+            tempView.noDataText = "没有数据 "
+            return tempView
+        }
         
         if (dataLabels.count > data.count){
             let tempView = LineChartView(frame: frame)
@@ -2424,6 +2535,7 @@ public class DrawCharts{
             return tempView
             
         }
+        
         
         let values = data
         
@@ -2534,6 +2646,18 @@ public class DrawCharts{
     /// get blood Presure Monitor Chart
     static public func bloodPressureMonitor(frame: CGRect, data: [[Double]], labels: [String]) ->UIView{
         let myView = UIView(frame: frame)
+        if labels.count == 0 || data.count == 0 || data[0].count == 0 {
+            let tempView = BarChartView(frame: frame)
+            tempView.noDataText = "没有数据"
+            return  tempView
+        }
+        if data.count != 3{
+            
+            let tempView = LineChartView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+            tempView.noDataTextDescription = "error data need 3* labels.count Array"
+            myView.addSubview(tempView)
+            return myView
+        }
         
         let colors = [UIColor(red: 61/255, green: 180/255, blue: 195/255, alpha: 1),
             UIColor(red: 243/255, green: 153/255, blue: 34/255, alpha: 1),
